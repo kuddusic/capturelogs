@@ -1,2 +1,2 @@
 #!/bin/sh
-nohup  dumpcap -i 4 -b duration:3600 -q  -w /captures/pcap/cm.pcap -f 'host 192.168.10.75 or port 554' > /dev/null &
+nohup /usr/local/bin/dumpcap -i 4 -b duration:1200 -q  -w /captures/pcap/big.pcap  -f 'port 8080' > /dev/null 2>&1 &
