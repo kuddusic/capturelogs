@@ -18,20 +18,16 @@ import Queue
 from threading import Thread
 import MySQLdb
 import xml.etree.ElementTree
-
-
+from config import Config
 ############ GLOBALS
-class Config:
-    pass
 
-TESTING=True # TODO: DONT FORGET TO TURN TESTING FALSE ON PROD!!!
+TESTING=False # TODO: DONT FORGET TO TURN TESTING FALSE ON PROD!!!
 ERROR=1
 WARNING=3
 NOTICE=4
 INFO=5
 DEBUG=6
-LOG_SEVERITY=4 # TODO: in prod it should be ERROR severity
-LOG_ENABLED=True
+
 stopThread = False
 logfileName="./processbiglogs.log"
 dateTemplate="%Y-%m-%d %H:%M:%S"
@@ -76,7 +72,7 @@ def calculateDuration(playtime, teardowntime):
     return d.total_seconds()
 
 def log(str,severity=INFO):
-    if (LOG_ENABLED and severity<=LOG_SEVERITY):
+    if (Config.LOG_ENABLED and severity<=Config.LOG_SEVERITY):
         now= datetime.now()
         logfile.write(now.strftime(dateTemplate) + " " + str + "\n")
         logfile.flush()
@@ -296,10 +292,10 @@ def inspectLine(ln):
         r=None
         curses = None
 
-def feedback2Argela(sess):
+def feedback2Argela(cdr):
     strHead = "INSERT INTO Biglogs.argelaya VALUES(%s)"
 
-    soapaction = sess["soapaction"]
+    soapaction = cdr["soapaction"]
     action = "X"
     if soapaction == "CAI3G#Create":
         action = "C"
@@ -308,21 +304,19 @@ def feedback2Argela(sess):
     elif soapaction == "CAI3G#Set":
         action = "S"
 
-    Values="NULL,%s,%s, %s,%s,%s,%s,%s,%s,%s,%s,%s" % (getTime(cdr,"request_time"),
+    Values="NULL,%s, '%s', %s,%s,%s,%s,%s,%s,0,NULL,NULL" % (getTime(cdr,"request_time"),
         action,
         getField(cdr,"responsecode",True),
         getField(cdr,"subscriberId"),
         getField(cdr,"goHesapNo"),
         getField(cdr,"newOffer"),
         getField(cdr,"oldOffer"),
-        getField(cdr,"regCode"),
-        0,
-        NULL,
-        NULL)
+        getField(cdr,"regCode")
+        )
     sqlStr= strHead % (Values,)
     return sqlStr
 
-def updateGOAccountTable(sess, update=False):
+def updateGOAccountTable(cdr, update=False):
     if update==False:
         strHead = "INSERT INTO Biglogs.gohesapno VALUES(%s)"
         Values="NULL,%s,%s" % (
@@ -457,7 +451,7 @@ def logSessionError(f,errorStr):
 def connect2DB(reconnect=True):
     if reconnect:
         log("Mysql connection is closed. Try to reconnect..")
-    return MySQLdb.connect(Config.DB_SERVER, Config.DB_USER, Config.DB_PASS, Config.DB_NAME)
+    return MySQLdb.connect(Config.dbServer, Config.dbUser, Config.dbPass, Config.dbName)
 
 def Thread_dumpErroredSessions2File():
     #TODO: may be we need to write them to DB
@@ -472,7 +466,7 @@ def Thread_dumpErroredSessions2File():
         erroredsessions.task_done()
     if errFile.closed:
         errFile.close()
-    log("Dump Errored Session thread is started")
+    log("Dump Errored Session thread is stopped")
 
 def Thread_dumpSessions2DB():
     global wrote2DB
@@ -549,7 +543,7 @@ def Thread_ArgelaJobs():
         log("Could not connect to DB",ERROR)
         return
     log("connected to mysql\n")
-    sqlLF = open("sqlerrors.log","w+") #TODO: in prod it should be a+
+    sqlLF = open("sqlerrors1.log","w+") #TODO: in prod it should be a+
 
     while not stopThread:
         if db.open:
@@ -607,7 +601,7 @@ def Thread_GoUpdates():
         #TODO: We must stop main process too.. Find a way.
         return
     log("connected to mysql\n")
-    sqlLF = open("sqlerrors.log","w+") #TODO: in prod it should be a+
+    sqlLF = open("sqlerrors2.log","w+") #TODO: in prod it should be a+
 
     while not stopThread:
         if db.open:
@@ -624,8 +618,19 @@ def Thread_GoUpdates():
                     goHesapNoUpdates += 1
                     if goHesapNoUpdates % 10:
                         db.commit()
-              #TODO: We need to find a way to record the count of inserted rows
                     goUpdates.task_done()
+            except MySQLdb.IntegrityError as e:
+                if  e[0] == 1062: #Duplicate entry #WE get it because of duplicate
+                    queryStr = updateGOAccountTable(completed,True)
+                    try:
+                        cursor = db.cursor()
+                        cursor.execute(queryStr)
+                    except Exception,e:
+                        logSqlError(sqlLF,queryStr,"Unknown mysql Error:" + str(e))
+                        dbExceptioned += 1
+                else:
+                    dbExceptioned += 1
+                    logSqlError(sqlLF,queryStr,str(e))
             except AttributeError, e:
                 if not db.open:
                   db = connect2DB()
@@ -634,9 +639,8 @@ def Thread_GoUpdates():
                if not db.open:
                   db = connect2DB()
                logSqlError(sqlLF,"Operation Error: " + queryStr,str(e))
-            except MySQLdb.IntegrityError, e:
-                logSqlError(sqlLF,queryStr,str(e))
-                dbExceptioned += 1
+
+
             except MySQLdb.Error, e:
                logSqlError(sqlLF,queryStr,str(e))
                dbExceptioned += 1
@@ -716,41 +720,13 @@ def writeSessions():
     json.dump(partialSessions,f)
     f.close()
 
-
-def getConfig():
-    Config.LOG_SEVERITY
-    retVal = False
-
-   # log(",")
-
-    fn = open("./processlogs.config")
-##    log( str(fn.readlines()))
-    for ln in fn.readlines():
-##        log( "line: "+ ln)
-        if "stop" in ln:
-            q = ln.split("stop=")[1].strip()
-            if q=="1":
-                retVal = True
-        elif "severity" in ln:
-            Config.LOG_SEVERITY = int(ln.split("severity=")[1].strip())
-        elif "dbUser" in ln:
-            Config.DB_USER = ln.split("dbUser=")[1].strip()
-        elif "dbPass" in ln:
-            Config.DB_PASS = ln.split("dbPass=")[1].strip()
-        elif "dbServer" in ln:
-            Config.DB_SERVER = ln.split("dbServer=")[1].strip()
-        elif "dbName" in ln:
-            Config.DB_NAME = ln.split("dbName=")[1].strip()
-    fn.close()
-    return retVal
-
 # # # # # # # # # # #
 ## ver: 1.001
 def main():
     global stopThread
     global fileSeq
-    if LOG_ENABLED:
-        log("Log analizer has started--------------------------------------------")
+    if Config.LOG_ENABLED:
+        log("Log analizer has started--------------------------------------------",ERROR)
     # This is a throwaway variable to deal with a python bug
     throwaway = datetime.strptime('20110101','%Y%m%d')
 
@@ -777,13 +753,7 @@ def main():
     time.sleep(3)
     while counter: #true MAIN LOOP
 
-        if getConfig():
-            log("Stop command is received from config file. Stopping...\n")
-            stopThread=True
-            counter=False
-            break
-
-            fileArray = findFiles()
+        fileArray = findFiles()
 
         if len(fileArray)==0 or completedsessions.qsize() > 50000 :
             time.sleep(60)
@@ -821,7 +791,8 @@ def main():
            #PROCESSING FILES STOP
             if TESTING:
                 counter=False
-                completedsessions.put(-1)
+##                completedsessions.put(-1)
+                stopThread = True
 
     log("Waiting for threads to stop")
 #    th1.daemon = False
@@ -830,12 +801,11 @@ def main():
     th1.join()
     th2.join()
     th3.join()
+    th4.join()
 
-    log("Partial:%d\tErrd:%d\tIgnd:%d\tComptd:%d\tWr2DB:%d\tAJ:%d\tGH:%d\tDBExcept:%d" % (
-              len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB, argelaJobsinDB,goHesapNoUpdates, dbExceptioned ) )
-    log("Storing incomplete sessions")
+    log("Storing incomplete sessions",NOTICE)
     writeSessions()
-    log("Stopped normally----------------------------")
+    log("Stopped normally----------------------------",ERROR)
     logfile.close()
 
 
