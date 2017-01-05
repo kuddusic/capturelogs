@@ -7,10 +7,6 @@
 # Created:     07.09.2015
 # Copyright:   (c) kudu 2015
 # Licence:     <your licence>
-# TODO: must catch kill signal and dump sessions
-# TODO: must rename sessions.json after loading
-
-
 #-------------------------------------------------------------------------------
 import os
 import subprocess
@@ -25,8 +21,10 @@ import xml.etree.ElementTree
 
 
 ############ GLOBALS
+class Config:
+    pass
 
-TESTING=False # TODO: DONT FORGET TO TURN TESTING FALSE ON PROD!!!
+TESTING=True # TODO: DONT FORGET TO TURN TESTING FALSE ON PROD!!!
 ERROR=1
 WARNING=3
 NOTICE=4
@@ -42,11 +40,18 @@ partialSessions = {} #they have only requests
 partialSessions[0] = {} #  for the first time queries
 completedsessions = Queue.Queue()
 erroredsessions = Queue.Queue()
+argelaJobs = Queue.Queue()
+goUpdates = Queue.Queue()
 wrote2DB = 0
+argelaJobsinDB = 0
+goHesapNoUpdates = 0
 ignored = 0
 dbExceptioned = 0
 capture_path="/captures/pcaptest"
-LOGS_PATH = "/captures/log/"
+if TESTING:
+    LOGS_PATH = "/captures/log2/"
+else:
+    LOGS_PATH = "/captures/log/"
 logfile=open(logfileName,"a+") #should be a+
 currentRecordTime=""
 methods=[]
@@ -81,20 +86,16 @@ def findFiles():
     findCommandStr="/usr/bin/find %s -mmin +2 -name \"*.log.gz\"" % (LOGS_PATH,)
     try:
         out = subprocess.check_output(shlex.split(findCommandStr)).splitlines()
-    ##    newlist = sorted(out,key=os.path.getctime)
         out.sort()
     except Exception as e:
         erroredsessions.put("EXCEPTION: %s" % (str(e)) )
         print str(e)
         out=[]
-##    log("Find Files result" + str(out))
-##    if out:
-##        out.pop()
     return out[:10]
 
 def findFilesTest():
-##    testFiles = ['/captures/logtest/20150331124927.pcap.log.gz','/captures/logtest/20150331131927.pcap.log.gz', '/captures/logtest/20150331171927.pcap.log.gz']
-    testFiles = ['d:\\captures\\biglogs\\20161008141027.pcap.log.gz','d:\\captures\\biglogs\\20161008151027.pcap.log.gz',    'd:\\captures\\biglogs\\20161008161027.pcap.log.gz']
+    testFiles = ['/captures/logtest/20150331124927.pcap.log.gz','/captures/logtest/20150331131927.pcap.log.gz', '/captures/logtest/20150331171927.pcap.log.gz']
+##    testFiles = ['d:\\captures\\biglogs\\20161008141027.pcap.log.gz','d:\\captures\\biglogs\\20161008151027.pcap.log.gz',    'd:\\captures\\biglogs\\20161008161027.pcap.log.gz']
 ##    ,'d:\\captures\\biglogs\\20161008171027.pcap.log.gz','d:\\captures\\biglogs\\20161008171027.pcap.log.gz',
 ##    'd:\\captures\\biglogs\\20161008191027.pcap.log.gz','d:\\captures\\biglogs\\20161008201027.pcap.log.gz','d:\\captures\\biglogs\\20161008211027.pcap.log.gz']
     return testFiles
@@ -161,16 +162,9 @@ def inspectLine(ln):
         curses["soapaction"]=soapaction.replace('"','')
         curses["request_data"]=data
         curses["request_time"]=ptime
-##        curses["ipsrc"]=ipsrc
-
-
-
 
     else: #This is response
-##        if data.find("LoginResponse")!=-1 or data.find("LoginResponse")!=-1:
-##            return
         sessionId = "%d_%s_%s_%s" % (fileSeq, ipdst,ipsrc,portdst)
-##        log(sessionId+ ": RESPONSE",DEBUG)
         if sessionId in sessions: #we found the session
             curses = sessions.pop(sessionId)
         else:
@@ -179,14 +173,11 @@ def inspectLine(ln):
                 curses = partialSessions[fileSeq-1].pop(sessionId)
                 log("Found Request from older pcap files sid=%s" % sessionId, WARNING )
             else:
-##                erroredsessions.put("Could not find Response's Request for sessionid=%s" % sessionId)
                 ignored +=1
                 return
         curses["responsecode"]=responsecode
         curses["response_data"]=data
         curses["response_time"]=ptime
-##        print "completed a session ", sessionId
-##        log(curses["request_time"])
         curses["response_duration"]=calculateDuration(curses["request_time"],curses["response_time"])
 
         subscriberId = None
@@ -296,22 +287,58 @@ def inspectLine(ln):
             ignored += 1
 
         completedsessions.put(curses)
-        if curses["ipsrc"] == "10.196.254.30"  and curses["subscriberId"] is not None and curses["method"]!="CAI3G#Get":
-            if curses["method"] == "CAI3G#Create": #,"CAI3G#Delete","CAI3G#Set")
-                feedback2Argela(curses)
-                updateGOAccountTable(curses)
-            elif curses["method"] in ("CAI3G#Delete","CAI3G#Set"):
-                feedback2Argela(curses)
-
-
+        if curses["ipsrc"] == "10.196.254.30"  and curses["subscriberId"] is not None and curses["soapaction"]!="CAI3G#Get":
+            if curses["soapaction"] == "CAI3G#Create":
+                argelaJobs.put(curses)
+                goUpdates.put(curses)
+            elif curses["soapaction"] in ("CAI3G#Delete","CAI3G#Set"):
+                argelaJobs.put(curses)
         r=None
         curses = None
 
 def feedback2Argela(sess):
-    pass
+    strHead = "INSERT INTO Biglogs.argelaya VALUES(%s)"
 
-def updateGOAccountTable(sess):
-    pass
+    soapaction = sess["soapaction"]
+    action = "X"
+    if soapaction == "CAI3G#Create":
+        action = "C"
+    elif soapaction == "CAI3G#Delete":
+        action = "D"
+    elif soapaction == "CAI3G#Set":
+        action = "S"
+
+    Values="NULL,%s,%s, %s,%s,%s,%s,%s,%s,%s,%s,%s" % (getTime(cdr,"request_time"),
+        action,
+        getField(cdr,"responsecode",True),
+        getField(cdr,"subscriberId"),
+        getField(cdr,"goHesapNo"),
+        getField(cdr,"newOffer"),
+        getField(cdr,"oldOffer"),
+        getField(cdr,"regCode"),
+        0,
+        NULL,
+        NULL)
+    sqlStr= strHead % (Values,)
+    return sqlStr
+
+def updateGOAccountTable(sess, update=False):
+    if update==False:
+        strHead = "INSERT INTO Biglogs.gohesapno VALUES(%s)"
+        Values="NULL,%s,%s" % (
+            getField(cdr,"subscriberId"),
+            getField(cdr,"goHesapNo")
+          )
+        sqlStr= strHead % (Values,)
+    else: #We are updating
+        strHead = "UPDATE Biglogs.gohesapno %s"
+        Values="SET goaccountid=%s where subscriberid=%s" % (
+            getField(cdr,"goHesapNo"),
+            getField(cdr,"subscriberId")
+          )
+        sqlStr= strHead % (Values,)
+
+    return sqlStr
 
 def totimestamp(dt, epoch=datetime(1970,1,1)):
     td = dt - epoch
@@ -370,7 +397,10 @@ def cdrFormat(cdr):
 
 def mysqlFormat(cdr):
 ##    print cdr
-    strHead = "INSERT INTO Biglogs.main VALUES(%s)"
+    if TESTING:
+        strHead = "INSERT INTO Biglogs.main_testing VALUES(%s)"
+    else:
+        strHead = "INSERT INTO Biglogs.main VALUES(%s)"
     #intFields = ["duration","getparametercount"]
     #dateFields = ["setuptime","playtime", "endtime"]
 
@@ -395,9 +425,10 @@ def mysqlFormat(cdr):
 
 def mysqlFormatDetailTable(cdr,paketid):
 ##    print cdr
-    strHead = "INSERT INTO Biglogs.detail VALUES(%s)"
-    #intFields = ["duration","getparametercount"]
-    #dateFields = ["setuptime","playtime", "endtime"]
+    if TESTING:
+        strHead = "INSERT INTO Biglogs.detail_testing VALUES(%s)"
+    else:
+        strHead = "INSERT INTO Biglogs.detail VALUES(%s)"
 
     Values="%s,%s, %s, %s, %s,%s,%s" % (paketid,
         getField(cdr,"tcpstreamid",True),
@@ -423,8 +454,12 @@ def logSessionError(f,errorStr):
      f.write(errorStr + "\n")
      f.flush()
 
+def connect2DB(reconnect=True):
+    if reconnect:
+        log("Mysql connection is closed. Try to reconnect..")
+    return MySQLdb.connect(Config.DB_SERVER, Config.DB_USER, Config.DB_PASS, Config.DB_NAME)
 
-def dumpErroredSessions2File():
+def Thread_dumpErroredSessions2File():
     #TODO: may be we need to write them to DB
     log("Dump Errored Session thread is started")
     errFile = open("sessionerrors.log","w+") #TODO: in prod it should be a+
@@ -439,26 +474,18 @@ def dumpErroredSessions2File():
         errFile.close()
     log("Dump Errored Session thread is started")
 
-def dumpSessions2DB():
+def Thread_dumpSessions2DB():
     global wrote2DB
     global dbExceptioned
 
-    TESTING1=False #TODO: in prod it should be False
     log("Dump thread is started\n")
-    db = MySQLdb.connect('localhost', 'biglogger', 'VOD1234log', 'Biglogs')
-##    db.escape_strings()
+    db = connect2DB(False)
     if not db:
         log("Could not connect to DB",ERROR)
         #TODO: We must stop main process too.. Find a way.
         return
     log("connected to mysql\n")
     sqlLF = open("sqlerrors.log","w+") #TODO: in prod it should be a+
-    if TESTING1:
-        cursor = db.cursor()
-        cursor.execute("TRUNCATE TABLE Biglogs.main")
-        cursor.execute("TRUNCATE TABLE Biglogs.detail")
-        db.commit()
-
 
     while not stopThread:
         if db.open:
@@ -474,11 +501,8 @@ def dumpSessions2DB():
                 if cursor.execute(queryStr):
 
                     paketId = cursor.lastrowid
-##                    cursor = db.cursor()
                     query2 = mysqlFormatDetailTable(completed,paketId)
-##                    log(query2)
                     cursor.execute(query2)
-
                     wrote2DB += 1
                     if wrote2DB % 100:
                         db.commit()
@@ -486,15 +510,11 @@ def dumpSessions2DB():
                     completedsessions.task_done()
             except AttributeError, e:
                 if not db.open:
-                  log("Mysql connection is closed. Try to reconnect..")
-                  db = MySQLdb.connect('localhost', 'biglogger', 'VOD1234log', 'Biglogs')
+                  db = connect2DB()
                 logSqlError(sqlLF,"Attribute Error: " + queryStr,str(e))
-##                cursor = db.cursor()
-##                cursor.execute(queryStr)
             except MySQLdb.OperationalError, e:##
                if not db.open:
-                  log("Mysql connection is closed. Try to reconnect..")
-                  db = MySQLdb.connect('localhost', 'biglogger', 'VOD1234log', 'vodlog')
+                  db = connect2DB()
                logSqlError(sqlLF,"Operation Error: " + queryStr,str(e))
             except MySQLdb.IntegrityError, e:
                 logSqlError(sqlLF,queryStr,str(e))
@@ -511,8 +531,7 @@ def dumpSessions2DB():
                 #db.rollback()
 
         else:
-            log("Mysql connection is closed. Try to reconnect..")
-            db =MySQLdb.connect('localhost', 'biglogger', 'VOD1234log', 'Biglogs')
+            db =connect2DB()
 
     log("Dump thread is stopped\n")
     if db:
@@ -520,7 +539,125 @@ def dumpSessions2DB():
     if not sqlLF.closed:
         sqlLF.close()
 
-def dumpSessions2File():
+def Thread_ArgelaJobs():
+    global argelaJobsinDB
+    global dbExceptioned
+
+    log("Argela JOB thread is started\n")
+    db = connect2DB(False)
+    if not db:
+        log("Could not connect to DB",ERROR)
+        return
+    log("connected to mysql\n")
+    sqlLF = open("sqlerrors.log","w+") #TODO: in prod it should be a+
+
+    while not stopThread:
+        if db.open:
+            try:
+                completed = argelaJobs.get(timeout=1)
+            except Queue.Empty:
+                continue
+
+            queryStr = feedback2Argela(completed)
+            try:
+                cursor = db.cursor()
+                if cursor.execute(queryStr):
+                    argelaJobsinDB += 1
+                    if argelaJobsinDB % 100:
+                        db.commit()
+                    argelaJobs.task_done()
+            except AttributeError, e:
+                if not db.open:
+                  db = connect2DB()
+                logSqlError(sqlLF,"Attribute Error: " + queryStr,str(e))
+            except MySQLdb.OperationalError, e:##
+               if not db.open:
+                  db = connect2DB()
+               logSqlError(sqlLF,"Operation Error: " + queryStr,str(e))
+            except MySQLdb.IntegrityError, e:
+                logSqlError(sqlLF,queryStr,str(e))
+                dbExceptioned += 1
+            except MySQLdb.Error, e:
+               logSqlError(sqlLF,queryStr,str(e))
+               dbExceptioned += 1
+            except MySQLdb.Warning, e:
+               logSqlError(sqlLF,queryStr,str(e))
+               dbExceptioned += 1
+            except Exception,e:
+               dbExceptioned += 1
+                #db.rollback()
+
+        else:
+            db =MySQLdb.connect('localhost', 'biglogger', 'VOD1234log', 'Biglogs')
+
+    log("Argela Job thread is stopped\n")
+    if db:
+        db.close()
+    if not sqlLF.closed:
+        sqlLF.close()
+
+def Thread_GoUpdates():
+    global goHesapNoUpdates
+    global dbExceptioned
+
+    log("GO Update thread is started\n")
+    db = connect2DB(False)
+    if not db:
+        log("Could not connect to DB",ERROR)
+        #TODO: We must stop main process too.. Find a way.
+        return
+    log("connected to mysql\n")
+    sqlLF = open("sqlerrors.log","w+") #TODO: in prod it should be a+
+
+    while not stopThread:
+        if db.open:
+            try:
+                completed = goUpdates.get(timeout=1)
+            except Queue.Empty:
+                continue
+
+            queryStr = updateGOAccountTable(completed)
+
+            try:
+                cursor = db.cursor()
+                if cursor.execute(queryStr):
+                    goHesapNoUpdates += 1
+                    if goHesapNoUpdates % 10:
+                        db.commit()
+              #TODO: We need to find a way to record the count of inserted rows
+                    goUpdates.task_done()
+            except AttributeError, e:
+                if not db.open:
+                  db = connect2DB()
+                logSqlError(sqlLF,"Attribute Error: " + queryStr,str(e))
+            except MySQLdb.OperationalError, e:##
+               if not db.open:
+                  db = connect2DB()
+               logSqlError(sqlLF,"Operation Error: " + queryStr,str(e))
+            except MySQLdb.IntegrityError, e:
+                logSqlError(sqlLF,queryStr,str(e))
+                dbExceptioned += 1
+            except MySQLdb.Error, e:
+               logSqlError(sqlLF,queryStr,str(e))
+               dbExceptioned += 1
+            except MySQLdb.Warning, e:
+               logSqlError(sqlLF,queryStr,str(e))
+               dbExceptioned += 1
+            except Exception,e:
+               logSqlError(sqlLF,queryStr,"Unknown mysql Error:" + str(e))
+               dbExceptioned += 1
+                #db.rollback()
+
+        else:
+            db =connect2DB()
+
+    log("Go update thread is stopped\n")
+    if db:
+        db.close()
+    if not sqlLF.closed:
+        sqlLF.close()
+
+def Thread_dumpSessions2File():
     global wrote2DB
     print "Dump thread is started\n"
     testout = open("testout","w+")
@@ -532,9 +669,6 @@ def dumpSessions2File():
                 continue
         if completed == -1:
             break
-
-##        print completed["tcpstreamid"]
-##        testout.write(cdrFormat(completed)+"\n")
 
         testout.write(mysqlFormat(completed) + "\n")
 ##        testout.write(mysqlFormatDetailTable(completed,99999) + "\n")
@@ -584,7 +718,7 @@ def writeSessions():
 
 
 def getConfig():
-    global LOG_SEVERITY
+    Config.LOG_SEVERITY
     retVal = False
 
    # log(",")
@@ -598,7 +732,15 @@ def getConfig():
             if q=="1":
                 retVal = True
         elif "severity" in ln:
-            LOG_SEVERITY = int(ln.split("severity=")[1].strip())
+            Config.LOG_SEVERITY = int(ln.split("severity=")[1].strip())
+        elif "dbUser" in ln:
+            Config.DB_USER = ln.split("dbUser=")[1].strip()
+        elif "dbPass" in ln:
+            Config.DB_PASS = ln.split("dbPass=")[1].strip()
+        elif "dbServer" in ln:
+            Config.DB_SERVER = ln.split("dbServer=")[1].strip()
+        elif "dbName" in ln:
+            Config.DB_NAME = ln.split("dbName=")[1].strip()
     fn.close()
     return retVal
 
@@ -614,13 +756,21 @@ def main():
 
 # MAIN LOOP
     counter=True
-    th1 = Thread(target=dumpSessions2DB)
+    th1 = Thread(target=Thread_dumpSessions2DB)
     th1.daemon = True
     th1.start()
 
-    th2 = Thread(target=dumpErroredSessions2File)
+    th2 = Thread(target=Thread_dumpErroredSessions2File)
     th2.daemon = True
     th2.start()
+
+    th3 = Thread(target=Thread_ArgelaJobs)
+    th3.daemon = True
+    th3.start()
+
+    th4 = Thread(target=Thread_GoUpdates)
+    th4.daemon = True
+    th4.start()
 
     loadSessions()
     print "Bismillah. Waiting to launch.. 10 seconds remaining..\n"
@@ -632,9 +782,7 @@ def main():
             stopThread=True
             counter=False
             break
-        if TESTING:
-            fileArray = findFilesTest()
-        else:
+
             fileArray = findFiles()
 
         if len(fileArray)==0 or completedsessions.qsize() > 50000 :
@@ -665,12 +813,10 @@ def main():
                 #rename log file
                 os.rename(newLogFileName,newLogFileName[0:-2]+"db.gz")
                 clearPartialSessions()
-                log("Partial:%d\tErrd:%d\tIgnd:%d\tComptd:%d\tWr2DB:%d\tDBExcept:%d" % (
-                    len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB,dbExceptioned ) )
+                log("Partial:%d\tErrd:%d\tIgnd:%d\tComptd:%d\tWr2DB:%d\tAJ:%d\tGH:%d\tDBExcept:%d" % (
+                    len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB, argelaJobsinDB,goHesapNoUpdates,dbExceptioned ) )
                 fileSeq += 1
 
-##            log("Partial:%d\tErrd:%d\tIgnd:%d\tComptd:%d\tWr2DB:%d\tDBExcept:%d" % (
-##              len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB,dbExceptioned ) )
             log("Batch is finished")
            #PROCESSING FILES STOP
             if TESTING:
@@ -683,9 +829,10 @@ def main():
 
     th1.join()
     th2.join()
+    th3.join()
 
-    log("Partial:%d\tErrd:%d\tIgnd:%d\tComptd:%d\tWr2DB:%d\tDBExcept:%d" % (
-              len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB,dbExceptioned ) )
+    log("Partial:%d\tErrd:%d\tIgnd:%d\tComptd:%d\tWr2DB:%d\tAJ:%d\tGH:%d\tDBExcept:%d" % (
+              len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB, argelaJobsinDB,goHesapNoUpdates, dbExceptioned ) )
     log("Storing incomplete sessions")
     writeSessions()
     log("Stopped normally----------------------------")
