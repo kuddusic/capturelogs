@@ -296,9 +296,22 @@ def inspectLine(ln):
             ignored += 1
 
         completedsessions.put(curses)
+        if curses["ipsrc"] == "10.196.254.30"  and curses["subscriberId"] is not None and curses["method"]!="CAI3G#Get":
+            if curses["method"] == "CAI3G#Create": #,"CAI3G#Delete","CAI3G#Set")
+                feedback2Argela(curses)
+                updateGOAccountTable(curses)
+            elif curses["method"] in ("CAI3G#Delete","CAI3G#Set"):
+                feedback2Argela(curses)
+
+
         r=None
         curses = None
 
+def feedback2Argela(sess):
+    pass
+
+def updateGOAccountTable(sess):
+    pass
 
 def totimestamp(dt, epoch=datetime(1970,1,1)):
     td = dt - epoch
