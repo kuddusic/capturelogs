@@ -5,3 +5,6 @@ class Config():
     dbPass="VOD1234log"
     dbServer="localhost"
     dbName="Biglogs"
+    arglThreadCount=3
+    arglLogFileName="arglfeedback.log"
+    arglDetailLogFileName="argldetail.log"

@@ -36,10 +36,10 @@ partialSessions = {} #they have only requests
 partialSessions[0] = {} #  for the first time queries
 completedsessions = Queue.Queue()
 erroredsessions = Queue.Queue()
-argelaJobs = Queue.Queue()
+arglJobs = Queue.Queue()
 goUpdates = Queue.Queue()
 wrote2DB = 0
-argelaJobsinDB = 0
+arglJobsinDB = 0
 goHesapNoUpdates = 0
 ignored = 0
 dbExceptioned = 0
@@ -285,15 +285,15 @@ def inspectLine(ln):
         completedsessions.put(curses)
         if curses["ipsrc"] == "10.196.254.30"  and curses["subscriberId"] is not None and curses["soapaction"]!="CAI3G#Get":
             if curses["soapaction"] == "CAI3G#Create":
-                argelaJobs.put(curses)
+                arglJobs.put(curses)
                 goUpdates.put(curses)
             elif curses["soapaction"] in ("CAI3G#Delete","CAI3G#Set"):
-                argelaJobs.put(curses)
+                arglJobs.put(curses)
         r=None
         curses = None
 
-def feedback2Argela(cdr):
-    strHead = "INSERT INTO Biglogs.argelaya VALUES(%s)"
+def feedback2argl(cdr):
+    strHead = "INSERT INTO Biglogs.arglya VALUES(%s)"
 
     soapaction = cdr["soapaction"]
     action = "X"
@@ -533,11 +533,11 @@ def Thread_dumpSessions2DB():
     if not sqlLF.closed:
         sqlLF.close()
 
-def Thread_ArgelaJobs():
-    global argelaJobsinDB
+def Thread_arglJobs():
+    global arglJobsinDB
     global dbExceptioned
 
-    log("Argela JOB thread is started\n")
+    log("argl JOB thread is started\n")
     db = connect2DB(False)
     if not db:
         log("Could not connect to DB",ERROR)
@@ -548,18 +548,18 @@ def Thread_ArgelaJobs():
     while not stopThread:
         if db.open:
             try:
-                completed = argelaJobs.get(timeout=1)
+                completed = arglJobs.get(timeout=1)
             except Queue.Empty:
                 continue
 
-            queryStr = feedback2Argela(completed)
+            queryStr = feedback2argl(completed)
             try:
                 cursor = db.cursor()
                 if cursor.execute(queryStr):
-                    argelaJobsinDB += 1
-                    if argelaJobsinDB % 100:
+                    arglJobsinDB += 1
+                    if arglJobsinDB % 100:
                         db.commit()
-                    argelaJobs.task_done()
+                    arglJobs.task_done()
             except AttributeError, e:
                 if not db.open:
                   db = connect2DB()
@@ -584,7 +584,7 @@ def Thread_ArgelaJobs():
         else:
             db =MySQLdb.connect('localhost', 'biglogger', 'VOD1234log', 'Biglogs')
 
-    log("Argela Job thread is stopped\n")
+    log("argl Job thread is stopped\n")
     if db:
         db.close()
     if not sqlLF.closed:
@@ -740,7 +740,7 @@ def main():
     th2.daemon = True
     th2.start()
 
-    th3 = Thread(target=Thread_ArgelaJobs)
+    th3 = Thread(target=Thread_arglJobs)
     th3.daemon = True
     th3.start()
 
@@ -784,7 +784,7 @@ def main():
                 os.rename(newLogFileName,newLogFileName[0:-2]+"db.gz")
                 clearPartialSessions()
                 log("Partial:%d\tErrd:%d\tIgnd:%d\tComptd:%d\tWr2DB:%d\tAJ:%d\tGH:%d\tDBExcept:%d" % (
-                    len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB, argelaJobsinDB,goHesapNoUpdates,dbExceptioned ) )
+                    len(partialSessions[fileSeq]),erroredsessions.qsize(),ignored,completedsessions.qsize(),wrote2DB, arglJobsinDB,goHesapNoUpdates,dbExceptioned ) )
                 fileSeq += 1
 
             log("Batch is finished")
