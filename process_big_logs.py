@@ -160,7 +160,7 @@ def inspectLine(ln):
         curses["request_time"]=ptime
         if curses["soapaction"]=="execute":
             ignored +=1
-            continue
+            return
 
     else: #This is response
         sessionId = "%d_%s_%s_%s" % (fileSeq, ipdst,ipsrc,portdst)
@@ -296,7 +296,7 @@ def inspectLine(ln):
         curses = None
 
 def feedback2argl(cdr):
-    strHead = "INSERT INTO Biglogs.arglya VALUES(%s)"
+    strHead = "INSERT INTO Biglogs.argelaya VALUES(%s)"
 
     soapaction = cdr["soapaction"]
     action = "X"
@@ -625,7 +625,7 @@ def Thread_GoUpdates():
             except MySQLdb.IntegrityError as e:
                 if  e[0] == 1062: #Duplicate entry #WE get it because of duplicate
                     queryStr = updateGOAccountTable(completed,True)
-                    logSqlError(sqlLF,queryStr,"GO_UPDATE_QUERY")
+##                    logSqlError(sqlLF,queryStr,"GO_UPDATE_QUERY")
                     try:
                         cursor = db.cursor()
                         cursor.execute(queryStr)
