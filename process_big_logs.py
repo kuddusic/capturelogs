@@ -158,6 +158,9 @@ def inspectLine(ln):
         curses["soapaction"]=soapaction.replace('"','')
         curses["request_data"]=data
         curses["request_time"]=ptime
+        if curses["soapaction"]=="execute":
+            ignored +=1
+            continue
 
     else: #This is response
         sessionId = "%d_%s_%s_%s" % (fileSeq, ipdst,ipsrc,portdst)
@@ -622,6 +625,7 @@ def Thread_GoUpdates():
             except MySQLdb.IntegrityError as e:
                 if  e[0] == 1062: #Duplicate entry #WE get it because of duplicate
                     queryStr = updateGOAccountTable(completed,True)
+                    logSqlError(sqlLF,queryStr,"GO_UPDATE_QUERY")
                     try:
                         cursor = db.cursor()
                         cursor.execute(queryStr)
