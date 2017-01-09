@@ -2715,3 +2715,643 @@ Row Information: [3728737L, datetime.datetime(2017, 1, 5, 16, 20, 13), 'S', 200L
 2017-01-07 15:52:30,953 - DEBUGLOG - DEBUG - [3728735L, datetime.datetime(2017, 1, 5, 16, 19, 59), 'S', 200L, '415360921', '629744820\r', '5236', '9001', 0L, None, None, None]
 2017-01-07 15:52:31,954 - DEBUGLOG - DEBUG - [3728740L, datetime.datetime(2017, 1, 5, 16, 21, 11), 'S', 200L, '421464433', '631100660\r', '9001', '5236', 0L, None, None, None]
 2017-01-07 15:52:32,956 - DEBUGLOG - DEBUG - [3728743L, datetime.datetime(2017, 1, 5, 16, 22, 48), 'C', 200L, '681865948', '677148620', '5237', None, 0L, None, None, None]
+2017-01-07 19:59:18,203 - DEBUGLOG - DEBUG - Query:Select * from Biglogs.argelaya where jobstatus=0 order by id limit 250
+2017-01-07 19:59:38,015 - DEBUGLOG - DEBUG - Query:Select * from Biglogs.argelaya where jobstatus=0 order by id limit 250
+2017-01-07 19:59:38,203 - DEBUGLOG - DEBUG - Query:UPDATE Biglogs.argelaya SET jobstatus=1 WHERE id in ()
+2017-01-07 20:12:04,303 - DEBUGLOG - DEBUG - Query:Select * from Biglogs.argelaya where jobstatus=0 order by id limit 250
+2017-01-07 20:12:04,542 - DEBUGLOG - DEBUG - Query:UPDATE Biglogs.argelaya SET jobstatus=1 WHERE id in (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250)
+2017-01-07 20:12:04,635 - DEBUGLOG - DEBUG - Query:select subscriberid,goaccountid from gohesapno where subscriberid in ('61703789','476350797','358575848','64522327','601888724','633922060','61657777','249027452','345245976','450756744','185592114','342784924','60822869','558939080','377776569','63568743','415791666','66544721','659556171','258097904','251458688','66347961','502257282','61218695','432205331','350901935','446880417','235466689','605180054','255052137','311451487','60133642','431436623','309354482','248640267','582097104','60208041','110858794','61428627','63844291','289272044','464438400','237817751','251911330','522861906','65725030','477276893','561307971','62382738','60839437','64615843','304262253','245319732','484233051','354365810','347659891','305895788','514024891','251593033','67071533','62454736','314292914','280908031','223889733','262096563','260553102','195871364','259706365','359371441','154897906','229908001','329720743','522643095','676599958','517289290','268093088','468985053','65698876','203522886','61778087','659726849','345867722','355686861','676602923','522678762','65347869','355233348','107235991','458563802','103735347','336413911','236936976','241969411','526849541','248754096','164689806','370052671','242584031','253533997','262204662','477630186','247505172','672619885','249418297','193989958','65953464','63525196','487704703','671223780','430309327','299173231','488702386','207600348','472436253','149402153','226873983','548978842','485246027','441421032','514820125','461398774','160513725','67559461','225069372','357116104','326941253','482104607','239978665','163580740','438270752','159982193','321743371','657144671','64825199','405629202','407655710','676611594','119364025','260734722','325488087','162380683','324797750','676609399','584567409','482832772','676577730','261563308','348198808','245852521','243551422','66052320','374230893','550872759','462596519','263079280','481238933','323837758','458663153','66739025','603023455','617718714','65680928','296398070','180608201','456452276','369835378','458803384','281181183')
+2017-01-07 20:12:04,688 - DEBUGLOG - DEBUG - GO hesap no is not found for 249027452,
+Row Information: [8L, datetime.datetime(2016, 12, 26, 14, 32, 6), 'S', 200L, '249027452', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,690 - DEBUGLOG - DEBUG - GO hesap no is not found for 249027452,
+Row Information: [20L, datetime.datetime(2016, 12, 26, 14, 32, 48), 'S', 200L, '249027452', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,691 - DEBUGLOG - DEBUG - GO hesap no is not found for 249027452,
+Row Information: [21L, datetime.datetime(2016, 12, 26, 14, 32, 52), 'D', 200L, '249027452', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,691 - DEBUGLOG - DEBUG - GO hesap no is not found for 61218695,
+Row Information: [26L, datetime.datetime(2016, 12, 26, 14, 33, 45), 'S', 200L, '61218695', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,691 - DEBUGLOG - DEBUG - GO hesap no is not found for 350901935,
+Row Information: [28L, datetime.datetime(2016, 12, 26, 14, 33, 52), 'S', 200L, '350901935', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,693 - DEBUGLOG - DEBUG - GO hesap no is not found for 350901935,
+Row Information: [37L, datetime.datetime(2016, 12, 26, 14, 34, 11), 'S', 200L, '350901935', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,693 - DEBUGLOG - DEBUG - GO hesap no is not found for 248640267,
+Row Information: [39L, datetime.datetime(2016, 12, 26, 14, 34, 14), 'S', 200L, '248640267', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 350901935,
+Row Information: [40L, datetime.datetime(2016, 12, 26, 14, 34, 15), 'D', 200L, '350901935', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [44L, datetime.datetime(2016, 12, 26, 14, 34, 34), 'S', 200L, '61428627', None, '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 61218695,
+Row Information: [45L, datetime.datetime(2016, 12, 26, 14, 34, 42), 'S', 200L, '61218695', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 61218695,
+Row Information: [49L, datetime.datetime(2016, 12, 26, 14, 34, 47), 'D', 200L, '61218695', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 251911330,
+Row Information: [53L, datetime.datetime(2016, 12, 26, 14, 35, 6), 'S', 200L, '251911330', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 248640267,
+Row Information: [54L, datetime.datetime(2016, 12, 26, 14, 35, 9), 'S', 200L, '248640267', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 248640267,
+Row Information: [56L, datetime.datetime(2016, 12, 26, 14, 35, 12), 'D', 200L, '248640267', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 251911330,
+Row Information: [61L, datetime.datetime(2016, 12, 26, 14, 35, 29), 'S', 200L, '251911330', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 251911330,
+Row Information: [62L, datetime.datetime(2016, 12, 26, 14, 35, 33), 'D', 200L, '251911330', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,694 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [69L, datetime.datetime(2016, 12, 26, 14, 36, 23), 'S', 200L, '61428627', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [76L, datetime.datetime(2016, 12, 26, 14, 37, 18), 'S', 200L, '61428627', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 251593033,
+Row Information: [78L, datetime.datetime(2016, 12, 26, 14, 37, 20), 'S', 200L, '251593033', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 251593033,
+Row Information: [80L, datetime.datetime(2016, 12, 26, 14, 37, 23), 'D', 200L, '251593033', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [82L, datetime.datetime(2016, 12, 26, 14, 37, 29), 'D', 200L, '61428627', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 314292914,
+Row Information: [84L, datetime.datetime(2016, 12, 26, 14, 37, 37), 'S', 200L, '314292914', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 280908031,
+Row Information: [85L, datetime.datetime(2016, 12, 26, 14, 37, 40), 'S', 200L, '280908031', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 314292914,
+Row Information: [86L, datetime.datetime(2016, 12, 26, 14, 37, 40), 'D', 200L, '314292914', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,697 - DEBUGLOG - DEBUG - GO hesap no is not found for 280908031,
+Row Information: [87L, datetime.datetime(2016, 12, 26, 14, 37, 43), 'D', 200L, '280908031', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,698 - DEBUGLOG - DEBUG - GO hesap no is not found for 223889733,
+Row Information: [89L, datetime.datetime(2016, 12, 26, 14, 37, 53), 'S', 200L, '223889733', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,698 - DEBUGLOG - DEBUG - GO hesap no is not found for 195871364,
+Row Information: [94L, datetime.datetime(2016, 12, 26, 14, 38, 9), 'S', 200L, '195871364', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,698 - DEBUGLOG - DEBUG - GO hesap no is not found for 259706365,
+Row Information: [95L, datetime.datetime(2016, 12, 26, 14, 38, 24), 'S', 200L, '259706365', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,698 - DEBUGLOG - DEBUG - GO hesap no is not found for 259706365,
+Row Information: [104L, datetime.datetime(2016, 12, 26, 14, 39, 17), 'S', 200L, '259706365', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,700 - DEBUGLOG - DEBUG - GO hesap no is not found for 259706365,
+Row Information: [105L, datetime.datetime(2016, 12, 26, 14, 39, 21), 'D', 200L, '259706365', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,700 - DEBUGLOG - DEBUG - GO hesap no is not found for 223889733,
+Row Information: [106L, datetime.datetime(2016, 12, 26, 14, 39, 27), 'S', 200L, '223889733', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,700 - DEBUGLOG - DEBUG - GO hesap no is not found for 223889733,
+Row Information: [107L, datetime.datetime(2016, 12, 26, 14, 39, 30), 'D', 200L, '223889733', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,700 - DEBUGLOG - DEBUG - GO hesap no is not found for 195871364,
+Row Information: [108L, datetime.datetime(2016, 12, 26, 14, 39, 38), 'S', 200L, '195871364', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,700 - DEBUGLOG - DEBUG - GO hesap no is not found for 195871364,
+Row Information: [109L, datetime.datetime(2016, 12, 26, 14, 39, 41), 'D', 200L, '195871364', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,700 - DEBUGLOG - DEBUG - GO hesap no is not found for 468985053,
+Row Information: [111L, datetime.datetime(2016, 12, 26, 14, 39, 55), 'S', 200L, '468985053', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,700 - DEBUGLOG - DEBUG - GO hesap no is not found for 203522886,
+Row Information: [114L, datetime.datetime(2016, 12, 26, 14, 40, 15), 'S', 200L, '203522886', None, '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:04,701 - DEBUGLOG - DEBUG - GO hesap no is not found for 468985053,
+Row Information: [117L, datetime.datetime(2016, 12, 26, 14, 40, 17), 'S', 200L, '468985053', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,701 - DEBUGLOG - DEBUG - GO hesap no is not found for 468985053,
+Row Information: [119L, datetime.datetime(2016, 12, 26, 14, 40, 21), 'D', 200L, '468985053', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,701 - DEBUGLOG - DEBUG - GO hesap no is not found for 248754096,
+Row Information: [134L, datetime.datetime(2016, 12, 26, 14, 41, 40), 'S', 200L, '248754096', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,701 - DEBUGLOG - DEBUG - GO hesap no is not found for 248754096,
+Row Information: [135L, datetime.datetime(2016, 12, 26, 14, 41, 43), 'D', 200L, '248754096', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,701 - DEBUGLOG - DEBUG - GO hesap no is not found for 203522886,
+Row Information: [136L, datetime.datetime(2016, 12, 26, 14, 41, 58), 'S', 200L, '203522886', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,703 - DEBUGLOG - DEBUG - GO hesap no is not found for 203522886,
+Row Information: [137L, datetime.datetime(2016, 12, 26, 14, 42, 4), 'D', 200L, '203522886', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,703 - DEBUGLOG - DEBUG - GO hesap no is not found for 671223780,
+Row Information: [152L, datetime.datetime(2016, 12, 26, 14, 43, 34), 'S', 200L, '671223780', None, None, '5237', 0L, 0L, None, None]
+2017-01-07 20:12:04,703 - DEBUGLOG - DEBUG - GO hesap no is not found for 671223780,
+Row Information: [153L, datetime.datetime(2016, 12, 26, 14, 43, 38), 'D', 200L, '671223780', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,704 - DEBUGLOG - DEBUG - GO hesap no is not found for 207600348,
+Row Information: [157L, datetime.datetime(2016, 12, 26, 14, 44, 8), 'S', 200L, '207600348', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,704 - DEBUGLOG - DEBUG - GO hesap no is not found for 226873983,
+Row Information: [161L, datetime.datetime(2016, 12, 26, 14, 44, 24), 'S', 200L, '226873983', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,704 - DEBUGLOG - DEBUG - GO hesap no is not found for 207600348,
+Row Information: [167L, datetime.datetime(2016, 12, 26, 14, 44, 48), 'S', 200L, '207600348', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,704 - DEBUGLOG - DEBUG - GO hesap no is not found for 226873983,
+Row Information: [174L, datetime.datetime(2016, 12, 26, 14, 45, 20), 'S', 200L, '226873983', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,704 - DEBUGLOG - DEBUG - GO hesap no is not found for 226873983,
+Row Information: [176L, datetime.datetime(2016, 12, 26, 14, 45, 25), 'D', 200L, '226873983', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,706 - DEBUGLOG - DEBUG - GO hesap no is not found for 260734722,
+Row Information: [195L, datetime.datetime(2016, 12, 26, 14, 47, 40), 'S', 200L, '260734722', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,706 - DEBUGLOG - DEBUG - GO hesap no is not found for 245852521,
+Row Information: [206L, datetime.datetime(2016, 12, 26, 14, 48, 21), 'S', 200L, '245852521', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,706 - DEBUGLOG - DEBUG - GO hesap no is not found for 260734722,
+Row Information: [207L, datetime.datetime(2016, 12, 26, 14, 48, 26), 'S', 200L, '260734722', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 260734722,
+Row Information: [208L, datetime.datetime(2016, 12, 26, 14, 48, 29), 'D', 200L, '260734722', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 243551422,
+Row Information: [209L, datetime.datetime(2016, 12, 26, 14, 48, 34), 'S', 200L, '243551422', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 245852521,
+Row Information: [214L, datetime.datetime(2016, 12, 26, 14, 48, 51), 'S', 200L, '245852521', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 245852521,
+Row Information: [216L, datetime.datetime(2016, 12, 26, 14, 48, 55), 'D', 200L, '245852521', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 243551422,
+Row Information: [217L, datetime.datetime(2016, 12, 26, 14, 49, 13), 'S', 200L, '243551422', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 243551422,
+Row Information: [218L, datetime.datetime(2016, 12, 26, 14, 49, 17), 'D', 200L, '243551422', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 369835378,
+Row Information: [235L, datetime.datetime(2016, 12, 26, 14, 51, 38), 'S', 200L, '369835378', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 369835378,
+Row Information: [237L, datetime.datetime(2016, 12, 26, 14, 51, 41), 'D', 200L, '369835378', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,707 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [241L, datetime.datetime(2016, 12, 26, 14, 34, 34), 'S', 200L, '61428627', None, '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,709 - DEBUGLOG - DEBUG - GO hesap no is not found for 61218695,
+Row Information: [242L, datetime.datetime(2016, 12, 26, 14, 34, 42), 'S', 200L, '61218695', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,709 - DEBUGLOG - DEBUG - GO hesap no is not found for 61218695,
+Row Information: [246L, datetime.datetime(2016, 12, 26, 14, 34, 47), 'D', 200L, '61218695', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:12:04,709 - DEBUGLOG - DEBUG - GO hesap no is not found for 251911330,
+Row Information: [250L, datetime.datetime(2016, 12, 26, 14, 35, 6), 'S', 200L, '251911330', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,724 - DEBUGLOG - DEBUG - Query:UPDATE Biglogs.argelaya SET jobstatus=5 WHERE id in (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+2017-01-07 20:12:04,842 - DEBUGLOG - DEBUG - [1L, datetime.datetime(2016, 12, 26, 14, 31, 53), 'S', 200L, '61703789', '614309890', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:04,842 - DEBUGLOG - DEBUG - [2L, datetime.datetime(2016, 12, 26, 14, 31, 54), 'S', 200L, '476350797', '651615870', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:04,842 - DEBUGLOG - DEBUG - [4L, datetime.datetime(2016, 12, 26, 14, 31, 57), 'S', 200L, '64522327', '623260760', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:05,844 - DEBUGLOG - DEBUG - [3L, datetime.datetime(2016, 12, 26, 14, 31, 55), 'S', 200L, '358575848', '614283270', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:05,845 - DEBUGLOG - DEBUG - [6L, datetime.datetime(2016, 12, 26, 14, 32, 4), 'S', 200L, '633922060', '672457750', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:05,845 - DEBUGLOG - DEBUG - [9L, datetime.datetime(2016, 12, 26, 14, 32, 6), 'S', 200L, '345245976', '662166530', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:06,845 - DEBUGLOG - DEBUG - [5L, datetime.datetime(2016, 12, 26, 14, 32, 1), 'S', 200L, '601888724', '669234980', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:06,845 - DEBUGLOG - DEBUG - [10L, datetime.datetime(2016, 12, 26, 14, 32, 8), 'S', 200L, '450756744', '642278520', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:06,845 - DEBUGLOG - DEBUG - [7L, datetime.datetime(2016, 12, 26, 14, 32, 5), 'S', 200L, '61657777', '605183100', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:07,845 - DEBUGLOG - DEBUG - [13L, datetime.datetime(2016, 12, 26, 14, 32, 11), 'S', 200L, '60822869', '606468830', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:07,848 - DEBUGLOG - DEBUG - [11L, datetime.datetime(2016, 12, 26, 14, 32, 10), 'S', 200L, '185592114', '646041940', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:07,848 - DEBUGLOG - DEBUG - [12L, datetime.datetime(2016, 12, 26, 14, 32, 11), 'S', 200L, '342784924', '676607190', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:08,846 - DEBUGLOG - DEBUG - [14L, datetime.datetime(2016, 12, 26, 14, 32, 14), 'S', 200L, '558939080', '664845890', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:08,848 - DEBUGLOG - DEBUG - [15L, datetime.datetime(2016, 12, 26, 14, 32, 21), 'S', 200L, '377776569', '644686810', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:08,848 - DEBUGLOG - DEBUG - [30L, datetime.datetime(2016, 12, 26, 14, 33, 56), 'S', 200L, '235466689', '638564990', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:09,848 - DEBUGLOG - DEBUG - [18L, datetime.datetime(2016, 12, 26, 14, 32, 43), 'S', 200L, '66544721', '607114530', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:09,848 - DEBUGLOG - DEBUG - [16L, datetime.datetime(2016, 12, 26, 14, 32, 28), 'S', 200L, '63568743', '614742790', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:09,849 - DEBUGLOG - DEBUG - [33L, datetime.datetime(2016, 12, 26, 14, 34, 1), 'S', 200L, '311451487', '611988550', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:10,848 - DEBUGLOG - DEBUG - [22L, datetime.datetime(2016, 12, 26, 14, 32, 53), 'S', 200L, '258097904', '625943870', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:10,849 - DEBUGLOG - DEBUG - [17L, datetime.datetime(2016, 12, 26, 14, 32, 36), 'S', 200L, '415791666', '629823960', None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:10,851 - DEBUGLOG - DEBUG - [34L, datetime.datetime(2016, 12, 26, 14, 34, 4), 'S', 200L, '60133642', '624444110', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:11,849 - DEBUGLOG - DEBUG - [23L, datetime.datetime(2016, 12, 26, 14, 32, 53), 'S', 200L, '251458688', '605807040', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:11,851 - DEBUGLOG - DEBUG - [19L, datetime.datetime(2016, 12, 26, 14, 32, 43), 'S', 200L, '659556171', '674910230', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:12:11,851 - DEBUGLOG - DEBUG - [36L, datetime.datetime(2016, 12, 26, 14, 34, 11), 'S', 200L, '342784924', '676607190', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:12,851 - DEBUGLOG - DEBUG - [27L, datetime.datetime(2016, 12, 26, 14, 33, 50), 'S', 200L, '432205331', '636487100', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:12,851 - DEBUGLOG - DEBUG - [24L, datetime.datetime(2016, 12, 26, 14, 33, 3), 'S', 200L, '66347961', '625668580', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:12,852 - DEBUGLOG - DEBUG - [43L, datetime.datetime(2016, 12, 26, 14, 34, 29), 'S', 200L, '110858794', '605298950', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:13,851 - DEBUGLOG - DEBUG - [31L, datetime.datetime(2016, 12, 26, 14, 34), 'S', 200L, '605180054', '669544100', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:13,851 - DEBUGLOG - DEBUG - [25L, datetime.datetime(2016, 12, 26, 14, 33, 6), 'S', 200L, '502257282', '657081410', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:13,852 - DEBUGLOG - DEBUG - [46L, datetime.datetime(2016, 12, 26, 14, 34, 43), 'S', 200L, '63844291', '614300000', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:14,851 - DEBUGLOG - DEBUG - [35L, datetime.datetime(2016, 12, 26, 14, 34, 10), 'S', 200L, '431436623', '636299270', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:14,852 - DEBUGLOG - DEBUG - [29L, datetime.datetime(2016, 12, 26, 14, 33, 56), 'S', 200L, '446880417', '641004620', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:14,855 - DEBUGLOG - DEBUG - [51L, datetime.datetime(2016, 12, 26, 14, 34, 52), 'S', 200L, '342784924', '676607190', None, '9001', 0L, 0L, None, None]
+2017-01-07 20:12:15,852 - DEBUGLOG - DEBUG - [38L, datetime.datetime(2016, 12, 26, 14, 34, 12), 'S', 200L, '309354482', '611111910', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:15,854 - DEBUGLOG - DEBUG - [32L, datetime.datetime(2016, 12, 26, 14, 34, 1), 'S', 200L, '255052137', '624526400', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:15,855 - DEBUGLOG - DEBUG - [52L, datetime.datetime(2016, 12, 26, 14, 34, 56), 'D', 200L, '342784924', '676607190', None, None, 0L, 0L, None, None]
+2017-01-07 20:12:16,854 - DEBUGLOG - DEBUG - [47L, datetime.datetime(2016, 12, 26, 14, 34, 43), 'S', 200L, '289272044', '623602670', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:16,855 - DEBUGLOG - DEBUG - [41L, datetime.datetime(2016, 12, 26, 14, 34, 16), 'S', 200L, '582097104', '667615990', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:16,857 - DEBUGLOG - DEBUG - [57L, datetime.datetime(2016, 12, 26, 14, 35, 13), 'S', 200L, '65725030', '619753990', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:17,855 - DEBUGLOG - DEBUG - [50L, datetime.datetime(2016, 12, 26, 14, 34, 50), 'S', 200L, '237817751', '610389540', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:17,855 - DEBUGLOG - DEBUG - [42L, datetime.datetime(2016, 12, 26, 14, 34, 27), 'S', 200L, '60208041', '608036010', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:17,858 - DEBUGLOG - DEBUG - [66L, datetime.datetime(2016, 12, 26, 14, 35, 55), 'S', 200L, '60839437', '623420170', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:18,855 - DEBUGLOG - DEBUG - [58L, datetime.datetime(2016, 12, 26, 14, 35, 14), 'S', 200L, '477276893', '651867950', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:12:18,857 - DEBUGLOG - DEBUG - [48L, datetime.datetime(2016, 12, 26, 14, 34, 45), 'S', 200L, '464438400', '647793000', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:18,858 - DEBUGLOG - DEBUG - [67L, datetime.datetime(2016, 12, 26, 14, 36, 3), 'S', 200L, '64615843', '619732400', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:19,857 - DEBUGLOG - DEBUG - [59L, datetime.datetime(2016, 12, 26, 14, 35, 15), 'S', 200L, '66544721', '607114530', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:19,858 - DEBUGLOG - DEBUG - [55L, datetime.datetime(2016, 12, 26, 14, 35, 9), 'S', 200L, '522861906', '660913070', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:19,859 - DEBUGLOG - DEBUG - [74L, datetime.datetime(2016, 12, 26, 14, 36, 52), 'S', 200L, '347659891', '613174560', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:20,858 - DEBUGLOG - DEBUG - [73L, datetime.datetime(2016, 12, 26, 14, 36, 52), 'S', 200L, '354365810', '612979900', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:20,858 - DEBUGLOG - DEBUG - [60L, datetime.datetime(2016, 12, 26, 14, 35, 19), 'S', 200L, '502257282', '657081410', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:20,861 - DEBUGLOG - DEBUG - [77L, datetime.datetime(2016, 12, 26, 14, 37, 19), 'S', 200L, '514024891', '658297540', '5239', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:21,858 - DEBUGLOG - DEBUG - [75L, datetime.datetime(2016, 12, 26, 14, 37, 15), 'S', 200L, '305895788', '609454730', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:21,859 - DEBUGLOG - DEBUG - [63L, datetime.datetime(2016, 12, 26, 14, 35, 45), 'S', 200L, '345245976', '662166530', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:21,861 - DEBUGLOG - DEBUG - [83L, datetime.datetime(2016, 12, 26, 14, 37, 30), 'S', 200L, '62454736', '608184090', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:22,859 - DEBUGLOG - DEBUG - [79L, datetime.datetime(2016, 12, 26, 14, 37, 21), 'S', 200L, '67071533', '625146450', None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:22,861 - DEBUGLOG - DEBUG - [64L, datetime.datetime(2016, 12, 26, 14, 35, 48), 'S', 200L, '561307971', '666373020', None, '5237', 0L, 0L, None, None]
+2017-01-07 20:12:22,862 - DEBUGLOG - DEBUG - [90L, datetime.datetime(2016, 12, 26, 14, 37, 55), 'S', 200L, '64615843', '619732400', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:23,861 - DEBUGLOG - DEBUG - [81L, datetime.datetime(2016, 12, 26, 14, 37, 24), 'D', 200L, '67071533', '625146450', None, None, 0L, 0L, None, None]
+2017-01-07 20:12:23,861 - DEBUGLOG - DEBUG - [65L, datetime.datetime(2016, 12, 26, 14, 35, 53), 'S', 200L, '62382738', '608189850', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:23,864 - DEBUGLOG - DEBUG - [97L, datetime.datetime(2016, 12, 26, 14, 38, 55), 'S', 200L, '359371441', '614342050', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:24,861 - DEBUGLOG - DEBUG - [88L, datetime.datetime(2016, 12, 26, 14, 37, 41), 'S', 200L, '251458688', '605807040', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:24,862 - DEBUGLOG - DEBUG - [68L, datetime.datetime(2016, 12, 26, 14, 36, 13), 'S', 200L, '304262253', '613738890', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:24,865 - DEBUGLOG - DEBUG - [98L, datetime.datetime(2016, 12, 26, 14, 38, 57), 'S', 200L, '154897906', '634817810', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:25,864 - DEBUGLOG - DEBUG - [110L, datetime.datetime(2016, 12, 26, 14, 39, 47), 'S', 200L, '268093088', '621557110', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:25,864 - DEBUGLOG - DEBUG - [70L, datetime.datetime(2016, 12, 26, 14, 36, 24), 'S', 200L, '63568743', '614742790', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:25,867 - DEBUGLOG - DEBUG - [99L, datetime.datetime(2016, 12, 26, 14, 38, 59), 'S', 200L, '229908001', '627447700', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:26,865 - DEBUGLOG - DEBUG - [112L, datetime.datetime(2016, 12, 26, 14, 39, 58), 'S', 200L, '61703789', '614309890', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:26,865 - DEBUGLOG - DEBUG - [71L, datetime.datetime(2016, 12, 26, 14, 36, 29), 'S', 200L, '245319732', '622804990', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:26,868 - DEBUGLOG - DEBUG - [100L, datetime.datetime(2016, 12, 26, 14, 39, 1), 'S', 200L, '329720743', '616460100', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:27,865 - DEBUGLOG - DEBUG - [116L, datetime.datetime(2016, 12, 26, 14, 40, 17), 'S', 200L, '61778087', '608028290', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:27,867 - DEBUGLOG - DEBUG - [72L, datetime.datetime(2016, 12, 26, 14, 36, 38), 'S', 200L, '484233051', '653835060', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:27,868 - DEBUGLOG - DEBUG - [102L, datetime.datetime(2016, 12, 26, 14, 39, 10), 'C', 200L, '676599958', '676605670', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:12:28,867 - DEBUGLOG - DEBUG - [118L, datetime.datetime(2016, 12, 26, 14, 40, 18), 'S', 200L, '659726849', '674927360', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:28,868 - DEBUGLOG - DEBUG - [91L, datetime.datetime(2016, 12, 26, 14, 38), 'S', 200L, '262096563', '628524060', None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:28,869 - DEBUGLOG - DEBUG - [103L, datetime.datetime(2016, 12, 26, 14, 39, 13), 'S', 200L, '517289290', '658697220', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:29,868 - DEBUGLOG - DEBUG - [120L, datetime.datetime(2016, 12, 26, 14, 40, 22), 'S', 200L, '345867722', '610135110', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:29,868 - DEBUGLOG - DEBUG - [92L, datetime.datetime(2016, 12, 26, 14, 38, 1), 'S', 200L, '260553102', '634188360', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:29,871 - DEBUGLOG - DEBUG - [113L, datetime.datetime(2016, 12, 26, 14, 40, 15), 'S', 200L, '65698876', '605850500', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:30,868 - DEBUGLOG - DEBUG - [122L, datetime.datetime(2016, 12, 26, 14, 40, 34), 'C', 200L, '676602923', '676606080', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:12:30,869 - DEBUGLOG - DEBUG - [93L, datetime.datetime(2016, 12, 26, 14, 38, 3), 'D', 200L, '262096563', '628524060', None, None, 0L, 0L, None, None]
+2017-01-07 20:12:30,871 - DEBUGLOG - DEBUG - [115L, datetime.datetime(2016, 12, 26, 14, 40, 16), 'S', 200L, '63844291', '614300000', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:31,869 - DEBUGLOG - DEBUG - [127L, datetime.datetime(2016, 12, 26, 14, 40, 54), 'S', 200L, '458563802', '645535590', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:31,871 - DEBUGLOG - DEBUG - [96L, datetime.datetime(2016, 12, 26, 14, 38, 48), 'S', 200L, '522861906', '660913070', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:31,872 - DEBUGLOG - DEBUG - [126L, datetime.datetime(2016, 12, 26, 14, 40, 50), 'S', 200L, '107235991', '604685070', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:32,871 - DEBUGLOG - DEBUG - [133L, datetime.datetime(2016, 12, 26, 14, 41, 31), 'S', 200L, '526849541', '675284620', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:32,872 - DEBUGLOG - DEBUG - [101L, datetime.datetime(2016, 12, 26, 14, 39, 4), 'S', 200L, '522643095', '660084280', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:32,875 - DEBUGLOG - DEBUG - [130L, datetime.datetime(2016, 12, 26, 14, 41, 6), 'S', 200L, '336413911', '608331990', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:33,871 - DEBUGLOG - DEBUG - [140L, datetime.datetime(2016, 12, 26, 14, 42, 22), 'S', 200L, '242584031', '627615490', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:33,872 - DEBUGLOG - DEBUG - [121L, datetime.datetime(2016, 12, 26, 14, 40, 32), 'S', 200L, '355686861', '613180420', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:33,875 - DEBUGLOG - DEBUG - [132L, datetime.datetime(2016, 12, 26, 14, 41, 21), 'S', 200L, '241969411', '605464970', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:34,872 - DEBUGLOG - DEBUG - [158L, datetime.datetime(2016, 12, 26, 14, 44, 9), 'S', 200L, '268093088', '621557110', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:34,874 - DEBUGLOG - DEBUG - [123L, datetime.datetime(2016, 12, 26, 14, 40, 43), 'S', 200L, '522678762', '660090880', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:34,875 - DEBUGLOG - DEBUG - [139L, datetime.datetime(2016, 12, 26, 14, 42, 17), 'S', 200L, '370052671', '615293500', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:35,874 - DEBUGLOG - DEBUG - [160L, datetime.datetime(2016, 12, 26, 14, 44, 13), 'S', 200L, '149402153', '600654850', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:35,875 - DEBUGLOG - DEBUG - [124L, datetime.datetime(2016, 12, 26, 14, 40, 45), 'S', 200L, '65347869', '603176220', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:35,877 - DEBUGLOG - DEBUG - [141L, datetime.datetime(2016, 12, 26, 14, 42, 25), 'S', 200L, '253533997', '605901420', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:36,875 - DEBUGLOG - DEBUG - [163L, datetime.datetime(2016, 12, 26, 14, 44, 30), 'S', 200L, '485246027', '654136280', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:36,875 - DEBUGLOG - DEBUG - [125L, datetime.datetime(2016, 12, 26, 14, 40, 48), 'S', 200L, '355233348', '613047170', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:36,878 - DEBUGLOG - DEBUG - [145L, datetime.datetime(2016, 12, 26, 14, 42, 43), 'S', 200L, '672619885', '676213920', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:37,877 - DEBUGLOG - DEBUG - [173L, datetime.datetime(2016, 12, 26, 14, 45, 18), 'S', 200L, '61778087', '608028290', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:37,878 - DEBUGLOG - DEBUG - [128L, datetime.datetime(2016, 12, 26, 14, 40, 58), 'S', 200L, '103735347', '668268120', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:37,880 - DEBUGLOG - DEBUG - [146L, datetime.datetime(2016, 12, 26, 14, 42, 48), 'S', 200L, '65698876', '605850500', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:38,878 - DEBUGLOG - DEBUG - [175L, datetime.datetime(2016, 12, 26, 14, 45, 21), 'S', 200L, '526849541', '675284620', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:38,878 - DEBUGLOG - DEBUG - [129L, datetime.datetime(2016, 12, 26, 14, 41, 1), 'S', 200L, '62382738', '608189850', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:38,881 - DEBUGLOG - DEBUG - [147L, datetime.datetime(2016, 12, 26, 14, 42, 50), 'S', 200L, '249418297', '602479540', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:39,878 - DEBUGLOG - DEBUG - [178L, datetime.datetime(2016, 12, 26, 14, 45, 43), 'S', 200L, '326941253', '604582370', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:39,880 - DEBUGLOG - DEBUG - [131L, datetime.datetime(2016, 12, 26, 14, 41, 13), 'S', 200L, '236936976', '624890960', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:39,881 - DEBUGLOG - DEBUG - [148L, datetime.datetime(2016, 12, 26, 14, 42, 54), 'S', 200L, '193989958', '606515770', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:40,878 - DEBUGLOG - DEBUG - [179L, datetime.datetime(2016, 12, 26, 14, 46, 2), 'S', 200L, '345867722', '610135110', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:40,880 - DEBUGLOG - DEBUG - [138L, datetime.datetime(2016, 12, 26, 14, 42, 5), 'S', 200L, '164689806', '653891150', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:40,882 - DEBUGLOG - DEBUG - [150L, datetime.datetime(2016, 12, 26, 14, 43, 1), 'S', 200L, '63525196', '606043120', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:41,880 - DEBUGLOG - DEBUG - [180L, datetime.datetime(2016, 12, 26, 14, 46, 6), 'S', 200L, '482104607', '653287130', '5239', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:41,881 - DEBUGLOG - DEBUG - [142L, datetime.datetime(2016, 12, 26, 14, 42, 31), 'S', 200L, '262204662', '627411220', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:41,884 - DEBUGLOG - DEBUG - [151L, datetime.datetime(2016, 12, 26, 14, 43, 2), 'S', 200L, '487704703', '654902960', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:42,881 - DEBUGLOG - DEBUG - [184L, datetime.datetime(2016, 12, 26, 14, 46, 31), 'S', 200L, '438270752', '638214720', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:42,881 - DEBUGLOG - DEBUG - [143L, datetime.datetime(2016, 12, 26, 14, 42, 35), 'S', 200L, '477630186', '652052610', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:42,884 - DEBUGLOG - DEBUG - [154L, datetime.datetime(2016, 12, 26, 14, 43, 42), 'S', 200L, '430309327', '636025700', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:12:43,881 - DEBUGLOG - DEBUG - [185L, datetime.datetime(2016, 12, 26, 14, 46, 47), 'S', 200L, '159982193', '635254590', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:43,882 - DEBUGLOG - DEBUG - [144L, datetime.datetime(2016, 12, 26, 14, 42, 36), 'S', 200L, '247505172', '632190150', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:43,884 - DEBUGLOG - DEBUG - [155L, datetime.datetime(2016, 12, 26, 14, 43, 53), 'S', 200L, '299173231', '611994330', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:44,882 - DEBUGLOG - DEBUG - [187L, datetime.datetime(2016, 12, 26, 14, 46, 53), 'S', 200L, '657144671', '674638070', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:44,882 - DEBUGLOG - DEBUG - [149L, datetime.datetime(2016, 12, 26, 14, 42, 54), 'S', 200L, '65953464', '613169500', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:44,885 - DEBUGLOG - DEBUG - [156L, datetime.datetime(2016, 12, 26, 14, 44), 'S', 200L, '488702386', '655166550', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:45,884 - DEBUGLOG - DEBUG - [188L, datetime.datetime(2016, 12, 26, 14, 46, 53), 'S', 200L, '64825199', '614301630', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:45,885 - DEBUGLOG - DEBUG - [159L, datetime.datetime(2016, 12, 26, 14, 44, 13), 'S', 200L, '472436253', '650486690', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:45,887 - DEBUGLOG - DEBUG - [162L, datetime.datetime(2016, 12, 26, 14, 44, 29), 'S', 200L, '548978842', '663633390', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:46,884 - DEBUGLOG - DEBUG - [191L, datetime.datetime(2016, 12, 26, 14, 47, 5), 'S', 200L, '407655710', '626401620', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:46,887 - DEBUGLOG - DEBUG - [164L, datetime.datetime(2016, 12, 26, 14, 44, 33), 'S', 200L, '441421032', '639200870', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:46,888 - DEBUGLOG - DEBUG - [165L, datetime.datetime(2016, 12, 26, 14, 44, 35), 'S', 200L, '514820125', '658417260', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:47,885 - DEBUGLOG - DEBUG - [198L, datetime.datetime(2016, 12, 26, 14, 47, 44), 'S', 200L, '324797750', '617474570', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:47,887 - DEBUGLOG - DEBUG - [169L, datetime.datetime(2016, 12, 26, 14, 44, 53), 'S', 200L, '160513725', '625415630', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:47,888 - DEBUGLOG - DEBUG - [166L, datetime.datetime(2016, 12, 26, 14, 44, 37), 'S', 200L, '461398774', '646779750', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:48,887 - DEBUGLOG - DEBUG - [215L, datetime.datetime(2016, 12, 26, 14, 48, 51), 'S', 200L, '462596519', '647201610', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:48,888 - DEBUGLOG - DEBUG - [171L, datetime.datetime(2016, 12, 26, 14, 45, 13), 'S', 200L, '225069372', '623730010', None, '5236', 0L, 0L, None, None]
+2017-01-07 20:12:48,888 - DEBUGLOG - DEBUG - [168L, datetime.datetime(2016, 12, 26, 14, 44, 50), 'S', 200L, '430309327', '636025700', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:49,888 - DEBUGLOG - DEBUG - [220L, datetime.datetime(2016, 12, 26, 14, 49, 34), 'S', 200L, '481238933', '653042580', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:12:49,888 - DEBUGLOG - DEBUG - [172L, datetime.datetime(2016, 12, 26, 14, 45, 17), 'D', 200L, '225069372', '623730010', None, None, 0L, 0L, None, None]
+2017-01-07 20:12:49,890 - DEBUGLOG - DEBUG - [170L, datetime.datetime(2016, 12, 26, 14, 44, 55), 'S', 200L, '67559461', '623903710', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:50,890 - DEBUGLOG - DEBUG - [189L, datetime.datetime(2016, 12, 26, 14, 46, 54), 'S', 200L, '65953464', '613169500', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:50,891 - DEBUGLOG - DEBUG - [224L, datetime.datetime(2016, 12, 26, 14, 50, 15), 'S', 200L, '458663153', '645578620', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:50,891 - DEBUGLOG - DEBUG - [177L, datetime.datetime(2016, 12, 26, 14, 45, 28), 'S', 200L, '357116104', '614280100', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:51,892 - DEBUGLOG - DEBUG - [190L, datetime.datetime(2016, 12, 26, 14, 47), 'S', 200L, '405629202', '625183970', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:51,892 - DEBUGLOG - DEBUG - [225L, datetime.datetime(2016, 12, 26, 14, 50, 26), 'S', 200L, '66739025', '620983320', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:51,894 - DEBUGLOG - DEBUG - [181L, datetime.datetime(2016, 12, 26, 14, 46, 11), 'S', 200L, '249418297', '602479540', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:52,892 - DEBUGLOG - DEBUG - [192L, datetime.datetime(2016, 12, 26, 14, 47, 5), 'C', 200L, '676611594', '676606940', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:12:52,894 - DEBUGLOG - DEBUG - [229L, datetime.datetime(2016, 12, 26, 14, 51, 3), 'S', 200L, '65680928', '628091690', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:52,894 - DEBUGLOG - DEBUG - [182L, datetime.datetime(2016, 12, 26, 14, 46, 18), 'S', 200L, '239978665', '626924740', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:53,894 - DEBUGLOG - DEBUG - [231L, datetime.datetime(2016, 12, 26, 14, 51, 23), 'S', 200L, '64825199', '614301630', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:53,894 - DEBUGLOG - DEBUG - [196L, datetime.datetime(2016, 12, 26, 14, 47, 42), 'S', 200L, '325488087', '617202610', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:53,895 - DEBUGLOG - DEBUG - [183L, datetime.datetime(2016, 12, 26, 14, 46, 19), 'S', 200L, '163580740', '625567540', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:54,898 - DEBUGLOG - DEBUG - [232L, datetime.datetime(2016, 12, 26, 14, 51, 29), 'S', 200L, '296398070', '613305140', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:54,898 - DEBUGLOG - DEBUG - [200L, datetime.datetime(2016, 12, 26, 14, 47, 51), 'S', 200L, '164689806', '653891150', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:54,898 - DEBUGLOG - DEBUG - [186L, datetime.datetime(2016, 12, 26, 14, 46, 47), 'S', 200L, '321743371', '603468490', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:55,898 - DEBUGLOG - DEBUG - [233L, datetime.datetime(2016, 12, 26, 14, 51, 31), 'S', 200L, '180608201', '654278230', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:55,898 - DEBUGLOG - DEBUG - [193L, datetime.datetime(2016, 12, 26, 14, 47, 8), 'S', 200L, '119364025', '605435920', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:55,898 - DEBUGLOG - DEBUG - [201L, datetime.datetime(2016, 12, 26, 14, 48, 7), 'S', 200L, '584567409', '667451160', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:12:56,898 - DEBUGLOG - DEBUG - [234L, datetime.datetime(2016, 12, 26, 14, 51, 35), 'S', 200L, '456452276', '644422230', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:56,901 - DEBUGLOG - DEBUG - [194L, datetime.datetime(2016, 12, 26, 14, 47, 31), 'S', 200L, '357116104', '614280100', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:56,901 - DEBUGLOG - DEBUG - [203L, datetime.datetime(2016, 12, 26, 14, 48, 12), 'C', 200L, '676577730', '676603680', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:12:57,900 - DEBUGLOG - DEBUG - [244L, datetime.datetime(2016, 12, 26, 14, 34, 43), 'S', 200L, '289272044', '623602670', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:57,901 - DEBUGLOG - DEBUG - [197L, datetime.datetime(2016, 12, 26, 14, 47, 42), 'S', 200L, '162380683', '625064790', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:57,903 - DEBUGLOG - DEBUG - [210L, datetime.datetime(2016, 12, 26, 14, 48, 44), 'S', 200L, '66052320', '603813590', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:12:58,901 - DEBUGLOG - DEBUG - [247L, datetime.datetime(2016, 12, 26, 14, 34, 50), 'S', 200L, '237817751', '610389540', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:58,903 - DEBUGLOG - DEBUG - [199L, datetime.datetime(2016, 12, 26, 14, 47, 46), 'C', 200L, '676609399', '676606750', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:12:58,904 - DEBUGLOG - DEBUG - [211L, datetime.datetime(2016, 12, 26, 14, 48, 44), 'S', 200L, '374230893', '633631260', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:59,903 - DEBUGLOG - DEBUG - [202L, datetime.datetime(2016, 12, 26, 14, 48, 10), 'S', 200L, '482832772', '653503900', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:12:59,904 - DEBUGLOG - DEBUG - [212L, datetime.datetime(2016, 12, 26, 14, 48, 49), 'S', 200L, '260553102', '634188360', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:00,904 - DEBUGLOG - DEBUG - [204L, datetime.datetime(2016, 12, 26, 14, 48, 16), 'S', 200L, '261563308', '626685610', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:00,904 - DEBUGLOG - DEBUG - [213L, datetime.datetime(2016, 12, 26, 14, 48, 41), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:01,904 - DEBUGLOG - DEBUG - [205L, datetime.datetime(2016, 12, 26, 14, 48, 19), 'S', 200L, '348198808', '615144220', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:13:01,905 - DEBUGLOG - DEBUG - [223L, datetime.datetime(2016, 12, 26, 14, 49, 53), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:02,905 - DEBUGLOG - DEBUG - [219L, datetime.datetime(2016, 12, 26, 14, 49, 18), 'S', 200L, '263079280', '624432030', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:13:02,907 - DEBUGLOG - DEBUG - [226L, datetime.datetime(2016, 12, 26, 14, 50, 22), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:03,905 - DEBUGLOG - DEBUG - [221L, datetime.datetime(2016, 12, 26, 14, 49, 40), 'S', 200L, '163580740', '625567540', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:03,907 - DEBUGLOG - DEBUG - [228L, datetime.datetime(2016, 12, 26, 14, 50, 31), 'S', 200L, '617718714', '670857690', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:04,907 - DEBUGLOG - DEBUG - [230L, datetime.datetime(2016, 12, 26, 14, 51, 10), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:04,907 - DEBUGLOG - DEBUG - [222L, datetime.datetime(2016, 12, 26, 14, 49, 43), 'S', 200L, '323837758', '616882770', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:13:05,908 - DEBUGLOG - DEBUG - [238L, datetime.datetime(2016, 12, 26, 14, 51, 43), 'S', 200L, '281181183', '632258610', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:05,910 - DEBUGLOG - DEBUG - [227L, datetime.datetime(2016, 12, 26, 14, 50, 27), 'S', 200L, '603023455', '673752060', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:06,908 - DEBUGLOG - DEBUG - [239L, datetime.datetime(2016, 12, 26, 14, 34, 27), 'S', 200L, '60208041', '608036010', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:13:06,910 - DEBUGLOG - DEBUG - [236L, datetime.datetime(2016, 12, 26, 14, 51, 39), 'S', 200L, '458803384', '645625960', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:13:07,910 - DEBUGLOG - DEBUG - [245L, datetime.datetime(2016, 12, 26, 14, 34, 45), 'S', 200L, '464438400', '647793000', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:13:07,911 - DEBUGLOG - DEBUG - [240L, datetime.datetime(2016, 12, 26, 14, 34, 29), 'S', 200L, '110858794', '605298950', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:13:08,911 - DEBUGLOG - DEBUG - [243L, datetime.datetime(2016, 12, 26, 14, 34, 43), 'S', 200L, '63844291', '614300000', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:13:09,913 - DEBUGLOG - DEBUG - [248L, datetime.datetime(2016, 12, 26, 14, 34, 52), 'S', 200L, '342784924', '676607190', None, '9001', 0L, 0L, None, None]
+2017-01-07 20:13:10,914 - DEBUGLOG - DEBUG - [249L, datetime.datetime(2016, 12, 26, 14, 34, 56), 'D', 200L, '342784924', '676607190', None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,494 - DEBUGLOG - DEBUG - Query:Select * from Biglogs.argelaya where jobstatus=0 order by id limit 250
+2017-01-07 20:14:52,631 - DEBUGLOG - DEBUG - Query:UPDATE Biglogs.argelaya SET jobstatus=1 WHERE id in (251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393,394,395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,440,441,442,443,444,445,446,447,448,449,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,481,482,483,484,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,500)
+2017-01-07 20:14:52,703 - DEBUGLOG - DEBUG - Query:select subscriberid,goaccountid from gohesapno where subscriberid in ('248640267','522861906','65725030','477276893','66544721','502257282','251911330','345245976','561307971','62382738','60839437','64615843','304262253','61428627','63568743','245319732','484233051','354365810','347659891','305895788','514024891','251593033','67071533','62454736','314292914','280908031','251458688','223889733','262096563','260553102','195871364','259706365','359371441','154897906','229908001','329720743','522643095','676599958','517289290','268093088','468985053','61703789','65698876','203522886','63844291','61778087','659726849','345867722','355686861','676602923','522678762','65347869','355233348','107235991','458563802','103735347','336413911','236936976','241969411','526849541','248754096','164689806','370052671','242584031','253533997','262204662','477630186','247505172','672619885','249418297','193989958','65953464','63525196','487704703','671223780','430309327','299173231','488702386','207600348','472436253','149402153','226873983','548978842','485246027','441421032','514820125','461398774','160513725','67559461','225069372','357116104','326941253','482104607','239978665','163580740','438270752','159982193','321743371','657144671','64825199','405629202','407655710','676611594','119364025','260734722','325488087','162380683','324797750','676609399','584567409','482832772','676577730','261563308','348198808','245852521','243551422','66052320','374230893','550872759','462596519','263079280','481238933','323837758','458663153','66739025','603023455','617718714','65680928','296398070','180608201','456452276','369835378','458803384','281181183','232697979','225680026','472464807','175065680','301294106','201204175','318082628','126689136','359057345','428352201','248638800','254796499','676262717','62174311','64564418','453643868','347180196','164845393','650313713','103729240','434727812','452482298','462367257','327917564','482319996','460619807','452953098','172980855','372813394')
+2017-01-07 20:14:52,746 - DEBUGLOG - DEBUG - GO hesap no is not found for 248640267,
+Row Information: [251L, datetime.datetime(2016, 12, 26, 14, 35, 9), 'S', 200L, '248640267', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,746 - DEBUGLOG - DEBUG - GO hesap no is not found for 248640267,
+Row Information: [253L, datetime.datetime(2016, 12, 26, 14, 35, 12), 'D', 200L, '248640267', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,746 - DEBUGLOG - DEBUG - GO hesap no is not found for 251911330,
+Row Information: [258L, datetime.datetime(2016, 12, 26, 14, 35, 29), 'S', 200L, '251911330', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,746 - DEBUGLOG - DEBUG - GO hesap no is not found for 251911330,
+Row Information: [259L, datetime.datetime(2016, 12, 26, 14, 35, 33), 'D', 200L, '251911330', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,746 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [266L, datetime.datetime(2016, 12, 26, 14, 36, 23), 'S', 200L, '61428627', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [273L, datetime.datetime(2016, 12, 26, 14, 37, 18), 'S', 200L, '61428627', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 251593033,
+Row Information: [275L, datetime.datetime(2016, 12, 26, 14, 37, 20), 'S', 200L, '251593033', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 251593033,
+Row Information: [277L, datetime.datetime(2016, 12, 26, 14, 37, 23), 'D', 200L, '251593033', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 61428627,
+Row Information: [279L, datetime.datetime(2016, 12, 26, 14, 37, 29), 'D', 200L, '61428627', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 314292914,
+Row Information: [281L, datetime.datetime(2016, 12, 26, 14, 37, 37), 'S', 200L, '314292914', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 280908031,
+Row Information: [282L, datetime.datetime(2016, 12, 26, 14, 37, 40), 'S', 200L, '280908031', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 314292914,
+Row Information: [283L, datetime.datetime(2016, 12, 26, 14, 37, 40), 'D', 200L, '314292914', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 280908031,
+Row Information: [284L, datetime.datetime(2016, 12, 26, 14, 37, 43), 'D', 200L, '280908031', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 223889733,
+Row Information: [286L, datetime.datetime(2016, 12, 26, 14, 37, 53), 'S', 200L, '223889733', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 195871364,
+Row Information: [291L, datetime.datetime(2016, 12, 26, 14, 38, 9), 'S', 200L, '195871364', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 259706365,
+Row Information: [292L, datetime.datetime(2016, 12, 26, 14, 38, 24), 'S', 200L, '259706365', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 259706365,
+Row Information: [301L, datetime.datetime(2016, 12, 26, 14, 39, 17), 'S', 200L, '259706365', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,747 - DEBUGLOG - DEBUG - GO hesap no is not found for 259706365,
+Row Information: [302L, datetime.datetime(2016, 12, 26, 14, 39, 21), 'D', 200L, '259706365', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 223889733,
+Row Information: [303L, datetime.datetime(2016, 12, 26, 14, 39, 27), 'S', 200L, '223889733', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 223889733,
+Row Information: [304L, datetime.datetime(2016, 12, 26, 14, 39, 30), 'D', 200L, '223889733', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 195871364,
+Row Information: [305L, datetime.datetime(2016, 12, 26, 14, 39, 38), 'S', 200L, '195871364', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 195871364,
+Row Information: [306L, datetime.datetime(2016, 12, 26, 14, 39, 41), 'D', 200L, '195871364', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 468985053,
+Row Information: [308L, datetime.datetime(2016, 12, 26, 14, 39, 55), 'S', 200L, '468985053', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 203522886,
+Row Information: [311L, datetime.datetime(2016, 12, 26, 14, 40, 15), 'S', 200L, '203522886', None, '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 468985053,
+Row Information: [314L, datetime.datetime(2016, 12, 26, 14, 40, 17), 'S', 200L, '468985053', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 468985053,
+Row Information: [316L, datetime.datetime(2016, 12, 26, 14, 40, 21), 'D', 200L, '468985053', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 248754096,
+Row Information: [331L, datetime.datetime(2016, 12, 26, 14, 41, 40), 'S', 200L, '248754096', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 248754096,
+Row Information: [332L, datetime.datetime(2016, 12, 26, 14, 41, 43), 'D', 200L, '248754096', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 203522886,
+Row Information: [333L, datetime.datetime(2016, 12, 26, 14, 41, 58), 'S', 200L, '203522886', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 203522886,
+Row Information: [334L, datetime.datetime(2016, 12, 26, 14, 42, 4), 'D', 200L, '203522886', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,749 - DEBUGLOG - DEBUG - GO hesap no is not found for 671223780,
+Row Information: [349L, datetime.datetime(2016, 12, 26, 14, 43, 34), 'S', 200L, '671223780', None, None, '5237', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 671223780,
+Row Information: [350L, datetime.datetime(2016, 12, 26, 14, 43, 38), 'D', 200L, '671223780', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 207600348,
+Row Information: [354L, datetime.datetime(2016, 12, 26, 14, 44, 8), 'S', 200L, '207600348', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 226873983,
+Row Information: [358L, datetime.datetime(2016, 12, 26, 14, 44, 24), 'S', 200L, '226873983', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 207600348,
+Row Information: [364L, datetime.datetime(2016, 12, 26, 14, 44, 48), 'S', 200L, '207600348', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 226873983,
+Row Information: [371L, datetime.datetime(2016, 12, 26, 14, 45, 20), 'S', 200L, '226873983', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 226873983,
+Row Information: [373L, datetime.datetime(2016, 12, 26, 14, 45, 25), 'D', 200L, '226873983', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 260734722,
+Row Information: [392L, datetime.datetime(2016, 12, 26, 14, 47, 40), 'S', 200L, '260734722', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 245852521,
+Row Information: [403L, datetime.datetime(2016, 12, 26, 14, 48, 21), 'S', 200L, '245852521', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 260734722,
+Row Information: [404L, datetime.datetime(2016, 12, 26, 14, 48, 26), 'S', 200L, '260734722', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 260734722,
+Row Information: [405L, datetime.datetime(2016, 12, 26, 14, 48, 29), 'D', 200L, '260734722', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 243551422,
+Row Information: [406L, datetime.datetime(2016, 12, 26, 14, 48, 34), 'S', 200L, '243551422', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 245852521,
+Row Information: [411L, datetime.datetime(2016, 12, 26, 14, 48, 51), 'S', 200L, '245852521', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 245852521,
+Row Information: [413L, datetime.datetime(2016, 12, 26, 14, 48, 55), 'D', 200L, '245852521', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 243551422,
+Row Information: [414L, datetime.datetime(2016, 12, 26, 14, 49, 13), 'S', 200L, '243551422', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 243551422,
+Row Information: [415L, datetime.datetime(2016, 12, 26, 14, 49, 17), 'D', 200L, '243551422', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 369835378,
+Row Information: [432L, datetime.datetime(2016, 12, 26, 14, 51, 38), 'S', 200L, '369835378', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 369835378,
+Row Information: [434L, datetime.datetime(2016, 12, 26, 14, 51, 41), 'D', 200L, '369835378', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 232697979,
+Row Information: [436L, datetime.datetime(2016, 12, 26, 14, 51, 58), 'S', 200L, '232697979', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 175065680,
+Row Information: [439L, datetime.datetime(2016, 12, 26, 14, 52, 25), 'S', 200L, '175065680', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 301294106,
+Row Information: [440L, datetime.datetime(2016, 12, 26, 14, 52, 23), 'S', 200L, '301294106', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 175065680,
+Row Information: [443L, datetime.datetime(2016, 12, 26, 14, 53, 1), 'S', 200L, '175065680', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 175065680,
+Row Information: [444L, datetime.datetime(2016, 12, 26, 14, 53, 4), 'D', 200L, '175065680', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 248638800,
+Row Information: [452L, datetime.datetime(2016, 12, 26, 14, 53, 43), 'S', 200L, '248638800', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 248638800,
+Row Information: [454L, datetime.datetime(2016, 12, 26, 14, 53, 46), 'D', 200L, '248638800', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 232697979,
+Row Information: [460L, datetime.datetime(2016, 12, 26, 14, 51, 58), 'S', 200L, '232697979', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 175065680,
+Row Information: [463L, datetime.datetime(2016, 12, 26, 14, 52, 25), 'S', 200L, '175065680', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,750 - DEBUGLOG - DEBUG - GO hesap no is not found for 301294106,
+Row Information: [464L, datetime.datetime(2016, 12, 26, 14, 52, 23), 'S', 200L, '301294106', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,752 - DEBUGLOG - DEBUG - GO hesap no is not found for 175065680,
+Row Information: [467L, datetime.datetime(2016, 12, 26, 14, 53, 1), 'S', 200L, '175065680', None, None, '9001', 0L, 0L, None, None]
+2017-01-07 20:14:52,752 - DEBUGLOG - DEBUG - GO hesap no is not found for 175065680,
+Row Information: [468L, datetime.datetime(2016, 12, 26, 14, 53, 4), 'D', 200L, '175065680', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,752 - DEBUGLOG - DEBUG - GO hesap no is not found for 248638800,
+Row Information: [476L, datetime.datetime(2016, 12, 26, 14, 53, 43), 'S', 200L, '248638800', None, None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,752 - DEBUGLOG - DEBUG - GO hesap no is not found for 248638800,
+Row Information: [478L, datetime.datetime(2016, 12, 26, 14, 53, 46), 'D', 200L, '248638800', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,752 - DEBUGLOG - DEBUG - GO hesap no is not found for 482319996,
+Row Information: [495L, datetime.datetime(2016, 12, 26, 14, 55, 29), 'S', 200L, '482319996', None, None, '5239', 0L, 0L, None, None]
+2017-01-07 20:14:52,752 - DEBUGLOG - DEBUG - GO hesap no is not found for 482319996,
+Row Information: [497L, datetime.datetime(2016, 12, 26, 14, 55, 33), 'D', 200L, '482319996', None, None, None, 0L, 0L, None, None]
+2017-01-07 20:14:52,752 - DEBUGLOG - DEBUG - GO hesap no is not found for 452953098,
+Row Information: [498L, datetime.datetime(2016, 12, 26, 14, 55, 35), 'S', 200L, '452953098', None, '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:52,753 - DEBUGLOG - DEBUG - Query:UPDATE Biglogs.argelaya SET jobstatus=5 WHERE id in (251,253,258,259,266,273,275,277,279,281,282,283,284,286,291,292,301,302,303,304,305,306,308,311,314,316,331,332,333,334,349,350,354,358,364,371,373,392,403,404,405,406,411,413,414,415,432,434,436,439,440,443,444,452,454,460,463,464,467,468,476,478,495,497,498)
+2017-01-07 20:14:52,821 - DEBUGLOG - DEBUG - [255L, datetime.datetime(2016, 12, 26, 14, 35, 14), 'S', 200L, '477276893', '651867950', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:14:52,865 - DEBUGLOG - DEBUG - [252L, datetime.datetime(2016, 12, 26, 14, 35, 9), 'S', 200L, '522861906', '660913070', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:14:52,867 - DEBUGLOG - DEBUG - [254L, datetime.datetime(2016, 12, 26, 14, 35, 13), 'S', 200L, '65725030', '619753990', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:14:53,822 - DEBUGLOG - DEBUG - [256L, datetime.datetime(2016, 12, 26, 14, 35, 15), 'S', 200L, '66544721', '607114530', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:53,867 - DEBUGLOG - DEBUG - [257L, datetime.datetime(2016, 12, 26, 14, 35, 19), 'S', 200L, '502257282', '657081410', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:53,868 - DEBUGLOG - DEBUG - [263L, datetime.datetime(2016, 12, 26, 14, 35, 55), 'S', 200L, '60839437', '623420170', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:54,822 - DEBUGLOG - DEBUG - [270L, datetime.datetime(2016, 12, 26, 14, 36, 52), 'S', 200L, '354365810', '612979900', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:54,868 - DEBUGLOG - DEBUG - [260L, datetime.datetime(2016, 12, 26, 14, 35, 45), 'S', 200L, '345245976', '662166530', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:54,869 - DEBUGLOG - DEBUG - [264L, datetime.datetime(2016, 12, 26, 14, 36, 3), 'S', 200L, '64615843', '619732400', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:55,822 - DEBUGLOG - DEBUG - [272L, datetime.datetime(2016, 12, 26, 14, 37, 15), 'S', 200L, '305895788', '609454730', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:55,869 - DEBUGLOG - DEBUG - [261L, datetime.datetime(2016, 12, 26, 14, 35, 48), 'S', 200L, '561307971', '666373020', None, '5237', 0L, 0L, None, None]
+2017-01-07 20:14:55,871 - DEBUGLOG - DEBUG - [271L, datetime.datetime(2016, 12, 26, 14, 36, 52), 'S', 200L, '347659891', '613174560', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:56,823 - DEBUGLOG - DEBUG - [276L, datetime.datetime(2016, 12, 26, 14, 37, 21), 'S', 200L, '67071533', '625146450', None, '5236', 0L, 0L, None, None]
+2017-01-07 20:14:56,869 - DEBUGLOG - DEBUG - [262L, datetime.datetime(2016, 12, 26, 14, 35, 53), 'S', 200L, '62382738', '608189850', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:56,871 - DEBUGLOG - DEBUG - [274L, datetime.datetime(2016, 12, 26, 14, 37, 19), 'S', 200L, '514024891', '658297540', '5239', '5237', 0L, 0L, None, None]
+2017-01-07 20:14:57,825 - DEBUGLOG - DEBUG - [278L, datetime.datetime(2016, 12, 26, 14, 37, 24), 'D', 200L, '67071533', '625146450', None, None, 0L, 0L, None, None]
+2017-01-07 20:14:57,871 - DEBUGLOG - DEBUG - [265L, datetime.datetime(2016, 12, 26, 14, 36, 13), 'S', 200L, '304262253', '613738890', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:57,872 - DEBUGLOG - DEBUG - [280L, datetime.datetime(2016, 12, 26, 14, 37, 30), 'S', 200L, '62454736', '608184090', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:58,825 - DEBUGLOG - DEBUG - [285L, datetime.datetime(2016, 12, 26, 14, 37, 41), 'S', 200L, '251458688', '605807040', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:58,871 - DEBUGLOG - DEBUG - [267L, datetime.datetime(2016, 12, 26, 14, 36, 24), 'S', 200L, '63568743', '614742790', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:58,872 - DEBUGLOG - DEBUG - [287L, datetime.datetime(2016, 12, 26, 14, 37, 55), 'S', 200L, '64615843', '619732400', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:14:59,825 - DEBUGLOG - DEBUG - [307L, datetime.datetime(2016, 12, 26, 14, 39, 47), 'S', 200L, '268093088', '621557110', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:59,872 - DEBUGLOG - DEBUG - [268L, datetime.datetime(2016, 12, 26, 14, 36, 29), 'S', 200L, '245319732', '622804990', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:14:59,874 - DEBUGLOG - DEBUG - [294L, datetime.datetime(2016, 12, 26, 14, 38, 55), 'S', 200L, '359371441', '614342050', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:00,826 - DEBUGLOG - DEBUG - [309L, datetime.datetime(2016, 12, 26, 14, 39, 58), 'S', 200L, '61703789', '614309890', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:00,874 - DEBUGLOG - DEBUG - [269L, datetime.datetime(2016, 12, 26, 14, 36, 38), 'S', 200L, '484233051', '653835060', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:00,875 - DEBUGLOG - DEBUG - [295L, datetime.datetime(2016, 12, 26, 14, 38, 57), 'S', 200L, '154897906', '634817810', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:01,826 - DEBUGLOG - DEBUG - [313L, datetime.datetime(2016, 12, 26, 14, 40, 17), 'S', 200L, '61778087', '608028290', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:01,875 - DEBUGLOG - DEBUG - [288L, datetime.datetime(2016, 12, 26, 14, 38), 'S', 200L, '262096563', '628524060', None, '5236', 0L, 0L, None, None]
+2017-01-07 20:15:01,875 - DEBUGLOG - DEBUG - [296L, datetime.datetime(2016, 12, 26, 14, 38, 59), 'S', 200L, '229908001', '627447700', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:02,828 - DEBUGLOG - DEBUG - [315L, datetime.datetime(2016, 12, 26, 14, 40, 18), 'S', 200L, '659726849', '674927360', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:02,875 - DEBUGLOG - DEBUG - [289L, datetime.datetime(2016, 12, 26, 14, 38, 1), 'S', 200L, '260553102', '634188360', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:02,877 - DEBUGLOG - DEBUG - [297L, datetime.datetime(2016, 12, 26, 14, 39, 1), 'S', 200L, '329720743', '616460100', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:03,828 - DEBUGLOG - DEBUG - [317L, datetime.datetime(2016, 12, 26, 14, 40, 22), 'S', 200L, '345867722', '610135110', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:03,877 - DEBUGLOG - DEBUG - [299L, datetime.datetime(2016, 12, 26, 14, 39, 10), 'C', 200L, '676599958', '676605670', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:15:03,877 - DEBUGLOG - DEBUG - [290L, datetime.datetime(2016, 12, 26, 14, 38, 3), 'D', 200L, '262096563', '628524060', None, None, 0L, 0L, None, None]
+2017-01-07 20:15:04,828 - DEBUGLOG - DEBUG - [319L, datetime.datetime(2016, 12, 26, 14, 40, 34), 'C', 200L, '676602923', '676606080', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:15:04,878 - DEBUGLOG - DEBUG - [300L, datetime.datetime(2016, 12, 26, 14, 39, 13), 'S', 200L, '517289290', '658697220', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:04,880 - DEBUGLOG - DEBUG - [293L, datetime.datetime(2016, 12, 26, 14, 38, 48), 'S', 200L, '522861906', '660913070', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:05,829 - DEBUGLOG - DEBUG - [324L, datetime.datetime(2016, 12, 26, 14, 40, 54), 'S', 200L, '458563802', '645535590', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:05,880 - DEBUGLOG - DEBUG - [310L, datetime.datetime(2016, 12, 26, 14, 40, 15), 'S', 200L, '65698876', '605850500', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:05,881 - DEBUGLOG - DEBUG - [298L, datetime.datetime(2016, 12, 26, 14, 39, 4), 'S', 200L, '522643095', '660084280', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:06,831 - DEBUGLOG - DEBUG - [330L, datetime.datetime(2016, 12, 26, 14, 41, 31), 'S', 200L, '526849541', '675284620', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:06,881 - DEBUGLOG - DEBUG - [312L, datetime.datetime(2016, 12, 26, 14, 40, 16), 'S', 200L, '63844291', '614300000', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:06,881 - DEBUGLOG - DEBUG - [318L, datetime.datetime(2016, 12, 26, 14, 40, 32), 'S', 200L, '355686861', '613180420', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:07,832 - DEBUGLOG - DEBUG - [337L, datetime.datetime(2016, 12, 26, 14, 42, 22), 'S', 200L, '242584031', '627615490', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:07,881 - DEBUGLOG - DEBUG - [323L, datetime.datetime(2016, 12, 26, 14, 40, 50), 'S', 200L, '107235991', '604685070', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:07,881 - DEBUGLOG - DEBUG - [320L, datetime.datetime(2016, 12, 26, 14, 40, 43), 'S', 200L, '522678762', '660090880', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:08,832 - DEBUGLOG - DEBUG - [355L, datetime.datetime(2016, 12, 26, 14, 44, 9), 'S', 200L, '268093088', '621557110', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:08,881 - DEBUGLOG - DEBUG - [327L, datetime.datetime(2016, 12, 26, 14, 41, 6), 'S', 200L, '336413911', '608331990', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:08,882 - DEBUGLOG - DEBUG - [321L, datetime.datetime(2016, 12, 26, 14, 40, 45), 'S', 200L, '65347869', '603176220', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:09,832 - DEBUGLOG - DEBUG - [357L, datetime.datetime(2016, 12, 26, 14, 44, 13), 'S', 200L, '149402153', '600654850', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:09,882 - DEBUGLOG - DEBUG - [329L, datetime.datetime(2016, 12, 26, 14, 41, 21), 'S', 200L, '241969411', '605464970', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:09,884 - DEBUGLOG - DEBUG - [322L, datetime.datetime(2016, 12, 26, 14, 40, 48), 'S', 200L, '355233348', '613047170', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:10,835 - DEBUGLOG - DEBUG - [360L, datetime.datetime(2016, 12, 26, 14, 44, 30), 'S', 200L, '485246027', '654136280', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:10,884 - DEBUGLOG - DEBUG - [336L, datetime.datetime(2016, 12, 26, 14, 42, 17), 'S', 200L, '370052671', '615293500', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:10,884 - DEBUGLOG - DEBUG - [325L, datetime.datetime(2016, 12, 26, 14, 40, 58), 'S', 200L, '103735347', '668268120', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:11,835 - DEBUGLOG - DEBUG - [370L, datetime.datetime(2016, 12, 26, 14, 45, 18), 'S', 200L, '61778087', '608028290', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:11,884 - DEBUGLOG - DEBUG - [338L, datetime.datetime(2016, 12, 26, 14, 42, 25), 'S', 200L, '253533997', '605901420', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:11,885 - DEBUGLOG - DEBUG - [326L, datetime.datetime(2016, 12, 26, 14, 41, 1), 'S', 200L, '62382738', '608189850', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:12,835 - DEBUGLOG - DEBUG - [372L, datetime.datetime(2016, 12, 26, 14, 45, 21), 'S', 200L, '526849541', '675284620', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:12,884 - DEBUGLOG - DEBUG - [342L, datetime.datetime(2016, 12, 26, 14, 42, 43), 'S', 200L, '672619885', '676213920', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:12,887 - DEBUGLOG - DEBUG - [328L, datetime.datetime(2016, 12, 26, 14, 41, 13), 'S', 200L, '236936976', '624890960', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:13,836 - DEBUGLOG - DEBUG - [375L, datetime.datetime(2016, 12, 26, 14, 45, 43), 'S', 200L, '326941253', '604582370', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:13,885 - DEBUGLOG - DEBUG - [343L, datetime.datetime(2016, 12, 26, 14, 42, 48), 'S', 200L, '65698876', '605850500', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:13,888 - DEBUGLOG - DEBUG - [335L, datetime.datetime(2016, 12, 26, 14, 42, 5), 'S', 200L, '164689806', '653891150', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:14,836 - DEBUGLOG - DEBUG - [376L, datetime.datetime(2016, 12, 26, 14, 46, 2), 'S', 200L, '345867722', '610135110', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:14,887 - DEBUGLOG - DEBUG - [344L, datetime.datetime(2016, 12, 26, 14, 42, 50), 'S', 200L, '249418297', '602479540', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:14,888 - DEBUGLOG - DEBUG - [339L, datetime.datetime(2016, 12, 26, 14, 42, 31), 'S', 200L, '262204662', '627411220', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:15,838 - DEBUGLOG - DEBUG - [377L, datetime.datetime(2016, 12, 26, 14, 46, 6), 'S', 200L, '482104607', '653287130', '5239', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:15,888 - DEBUGLOG - DEBUG - [345L, datetime.datetime(2016, 12, 26, 14, 42, 54), 'S', 200L, '193989958', '606515770', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:15,890 - DEBUGLOG - DEBUG - [340L, datetime.datetime(2016, 12, 26, 14, 42, 35), 'S', 200L, '477630186', '652052610', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:16,838 - DEBUGLOG - DEBUG - [381L, datetime.datetime(2016, 12, 26, 14, 46, 31), 'S', 200L, '438270752', '638214720', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:16,888 - DEBUGLOG - DEBUG - [347L, datetime.datetime(2016, 12, 26, 14, 43, 1), 'S', 200L, '63525196', '606043120', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:16,891 - DEBUGLOG - DEBUG - [341L, datetime.datetime(2016, 12, 26, 14, 42, 36), 'S', 200L, '247505172', '632190150', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:17,839 - DEBUGLOG - DEBUG - [382L, datetime.datetime(2016, 12, 26, 14, 46, 47), 'S', 200L, '159982193', '635254590', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:17,891 - DEBUGLOG - DEBUG - [348L, datetime.datetime(2016, 12, 26, 14, 43, 2), 'S', 200L, '487704703', '654902960', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:17,892 - DEBUGLOG - DEBUG - [346L, datetime.datetime(2016, 12, 26, 14, 42, 54), 'S', 200L, '65953464', '613169500', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:18,842 - DEBUGLOG - DEBUG - [384L, datetime.datetime(2016, 12, 26, 14, 46, 53), 'S', 200L, '657144671', '674638070', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:18,891 - DEBUGLOG - DEBUG - [351L, datetime.datetime(2016, 12, 26, 14, 43, 42), 'S', 200L, '430309327', '636025700', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:15:18,894 - DEBUGLOG - DEBUG - [356L, datetime.datetime(2016, 12, 26, 14, 44, 13), 'S', 200L, '472436253', '650486690', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:19,842 - DEBUGLOG - DEBUG - [385L, datetime.datetime(2016, 12, 26, 14, 46, 53), 'S', 200L, '64825199', '614301630', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:19,891 - DEBUGLOG - DEBUG - [352L, datetime.datetime(2016, 12, 26, 14, 43, 53), 'S', 200L, '299173231', '611994330', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:19,894 - DEBUGLOG - DEBUG - [361L, datetime.datetime(2016, 12, 26, 14, 44, 33), 'S', 200L, '441421032', '639200870', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:20,844 - DEBUGLOG - DEBUG - [388L, datetime.datetime(2016, 12, 26, 14, 47, 5), 'S', 200L, '407655710', '626401620', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:20,894 - DEBUGLOG - DEBUG - [353L, datetime.datetime(2016, 12, 26, 14, 44), 'S', 200L, '488702386', '655166550', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:20,895 - DEBUGLOG - DEBUG - [366L, datetime.datetime(2016, 12, 26, 14, 44, 53), 'S', 200L, '160513725', '625415630', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:21,845 - DEBUGLOG - DEBUG - [395L, datetime.datetime(2016, 12, 26, 14, 47, 44), 'S', 200L, '324797750', '617474570', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:21,894 - DEBUGLOG - DEBUG - [359L, datetime.datetime(2016, 12, 26, 14, 44, 29), 'S', 200L, '548978842', '663633390', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:21,897 - DEBUGLOG - DEBUG - [368L, datetime.datetime(2016, 12, 26, 14, 45, 13), 'S', 200L, '225069372', '623730010', None, '5236', 0L, 0L, None, None]
+2017-01-07 20:15:22,845 - DEBUGLOG - DEBUG - [412L, datetime.datetime(2016, 12, 26, 14, 48, 51), 'S', 200L, '462596519', '647201610', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:22,895 - DEBUGLOG - DEBUG - [362L, datetime.datetime(2016, 12, 26, 14, 44, 35), 'S', 200L, '514820125', '658417260', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:22,898 - DEBUGLOG - DEBUG - [369L, datetime.datetime(2016, 12, 26, 14, 45, 17), 'D', 200L, '225069372', '623730010', None, None, 0L, 0L, None, None]
+2017-01-07 20:15:23,845 - DEBUGLOG - DEBUG - [417L, datetime.datetime(2016, 12, 26, 14, 49, 34), 'S', 200L, '481238933', '653042580', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:15:23,897 - DEBUGLOG - DEBUG - [363L, datetime.datetime(2016, 12, 26, 14, 44, 37), 'S', 200L, '461398774', '646779750', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:23,898 - DEBUGLOG - DEBUG - [386L, datetime.datetime(2016, 12, 26, 14, 46, 54), 'S', 200L, '65953464', '613169500', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:24,846 - DEBUGLOG - DEBUG - [421L, datetime.datetime(2016, 12, 26, 14, 50, 15), 'S', 200L, '458663153', '645578620', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:24,898 - DEBUGLOG - DEBUG - [365L, datetime.datetime(2016, 12, 26, 14, 44, 50), 'S', 200L, '430309327', '636025700', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:24,900 - DEBUGLOG - DEBUG - [387L, datetime.datetime(2016, 12, 26, 14, 47), 'S', 200L, '405629202', '625183970', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:25,848 - DEBUGLOG - DEBUG - [422L, datetime.datetime(2016, 12, 26, 14, 50, 26), 'S', 200L, '66739025', '620983320', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:25,900 - DEBUGLOG - DEBUG - [367L, datetime.datetime(2016, 12, 26, 14, 44, 55), 'S', 200L, '67559461', '623903710', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:25,901 - DEBUGLOG - DEBUG - [389L, datetime.datetime(2016, 12, 26, 14, 47, 5), 'C', 200L, '676611594', '676606940', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:15:26,848 - DEBUGLOG - DEBUG - [426L, datetime.datetime(2016, 12, 26, 14, 51, 3), 'S', 200L, '65680928', '628091690', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:26,900 - DEBUGLOG - DEBUG - [374L, datetime.datetime(2016, 12, 26, 14, 45, 28), 'S', 200L, '357116104', '614280100', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:26,901 - DEBUGLOG - DEBUG - [393L, datetime.datetime(2016, 12, 26, 14, 47, 42), 'S', 200L, '325488087', '617202610', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:27,851 - DEBUGLOG - DEBUG - [428L, datetime.datetime(2016, 12, 26, 14, 51, 23), 'S', 200L, '64825199', '614301630', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:27,901 - DEBUGLOG - DEBUG - [378L, datetime.datetime(2016, 12, 26, 14, 46, 11), 'S', 200L, '249418297', '602479540', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:27,903 - DEBUGLOG - DEBUG - [397L, datetime.datetime(2016, 12, 26, 14, 47, 51), 'S', 200L, '164689806', '653891150', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:28,852 - DEBUGLOG - DEBUG - [429L, datetime.datetime(2016, 12, 26, 14, 51, 29), 'S', 200L, '296398070', '613305140', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:28,901 - DEBUGLOG - DEBUG - [379L, datetime.datetime(2016, 12, 26, 14, 46, 18), 'S', 200L, '239978665', '626924740', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:28,904 - DEBUGLOG - DEBUG - [398L, datetime.datetime(2016, 12, 26, 14, 48, 7), 'S', 200L, '584567409', '667451160', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:29,852 - DEBUGLOG - DEBUG - [430L, datetime.datetime(2016, 12, 26, 14, 51, 31), 'S', 200L, '180608201', '654278230', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:29,903 - DEBUGLOG - DEBUG - [380L, datetime.datetime(2016, 12, 26, 14, 46, 19), 'S', 200L, '163580740', '625567540', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:29,904 - DEBUGLOG - DEBUG - [400L, datetime.datetime(2016, 12, 26, 14, 48, 12), 'C', 200L, '676577730', '676603680', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:15:30,854 - DEBUGLOG - DEBUG - [431L, datetime.datetime(2016, 12, 26, 14, 51, 35), 'S', 200L, '456452276', '644422230', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:30,904 - DEBUGLOG - DEBUG - [383L, datetime.datetime(2016, 12, 26, 14, 46, 47), 'S', 200L, '321743371', '603468490', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:30,907 - DEBUGLOG - DEBUG - [407L, datetime.datetime(2016, 12, 26, 14, 48, 44), 'S', 200L, '66052320', '603813590', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:31,855 - DEBUGLOG - DEBUG - [445L, datetime.datetime(2016, 12, 26, 14, 53, 7), 'S', 200L, '318082628', '609864700', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:31,905 - DEBUGLOG - DEBUG - [390L, datetime.datetime(2016, 12, 26, 14, 47, 8), 'S', 200L, '119364025', '605435920', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:31,907 - DEBUGLOG - DEBUG - [408L, datetime.datetime(2016, 12, 26, 14, 48, 44), 'S', 200L, '374230893', '633631260', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:32,855 - DEBUGLOG - DEBUG - [448L, datetime.datetime(2016, 12, 26, 14, 52, 23), 'S', 200L, '359057345', '646542550', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:32,907 - DEBUGLOG - DEBUG - [391L, datetime.datetime(2016, 12, 26, 14, 47, 31), 'S', 200L, '357116104', '614280100', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:32,908 - DEBUGLOG - DEBUG - [409L, datetime.datetime(2016, 12, 26, 14, 48, 49), 'S', 200L, '260553102', '634188360', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:33,858 - DEBUGLOG - DEBUG - [456L, datetime.datetime(2016, 12, 26, 14, 53, 56), 'C', 200L, '676262717', '676575050', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:15:33,907 - DEBUGLOG - DEBUG - [394L, datetime.datetime(2016, 12, 26, 14, 47, 42), 'S', 200L, '162380683', '625064790', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:33,910 - DEBUGLOG - DEBUG - [410L, datetime.datetime(2016, 12, 26, 14, 48, 41), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:34,858 - DEBUGLOG - DEBUG - [458L, datetime.datetime(2016, 12, 26, 14, 54, 17), 'S', 200L, '64564418', '634265000', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:34,908 - DEBUGLOG - DEBUG - [396L, datetime.datetime(2016, 12, 26, 14, 47, 46), 'C', 200L, '676609399', '676606750', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:15:34,911 - DEBUGLOG - DEBUG - [420L, datetime.datetime(2016, 12, 26, 14, 49, 53), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:35,859 - DEBUGLOG - DEBUG - [459L, datetime.datetime(2016, 12, 26, 14, 54, 21), 'S', 200L, '453643868', '643404300', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:35,910 - DEBUGLOG - DEBUG - [399L, datetime.datetime(2016, 12, 26, 14, 48, 10), 'S', 200L, '482832772', '653503900', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:35,911 - DEBUGLOG - DEBUG - [423L, datetime.datetime(2016, 12, 26, 14, 50, 22), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:36,859 - DEBUGLOG - DEBUG - [469L, datetime.datetime(2016, 12, 26, 14, 53, 7), 'S', 200L, '318082628', '609864700', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:36,911 - DEBUGLOG - DEBUG - [401L, datetime.datetime(2016, 12, 26, 14, 48, 16), 'S', 200L, '261563308', '626685610', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:36,913 - DEBUGLOG - DEBUG - [425L, datetime.datetime(2016, 12, 26, 14, 50, 31), 'S', 200L, '617718714', '670857690', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:37,861 - DEBUGLOG - DEBUG - [472L, datetime.datetime(2016, 12, 26, 14, 52, 23), 'S', 200L, '359057345', '646542550', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:37,911 - DEBUGLOG - DEBUG - [402L, datetime.datetime(2016, 12, 26, 14, 48, 19), 'S', 200L, '348198808', '615144220', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:37,914 - DEBUGLOG - DEBUG - [427L, datetime.datetime(2016, 12, 26, 14, 51, 10), 'S', 200L, '550872759', '673525130', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:38,861 - DEBUGLOG - DEBUG - [480L, datetime.datetime(2016, 12, 26, 14, 53, 56), 'C', 200L, '676262717', '676575050', '5237', None, 0L, 0L, None, None]
+2017-01-07 20:15:38,913 - DEBUGLOG - DEBUG - [416L, datetime.datetime(2016, 12, 26, 14, 49, 18), 'S', 200L, '263079280', '624432030', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:38,914 - DEBUGLOG - DEBUG - [435L, datetime.datetime(2016, 12, 26, 14, 51, 43), 'S', 200L, '281181183', '632258610', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:39,862 - DEBUGLOG - DEBUG - [482L, datetime.datetime(2016, 12, 26, 14, 54, 17), 'S', 200L, '64564418', '634265000', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:39,914 - DEBUGLOG - DEBUG - [418L, datetime.datetime(2016, 12, 26, 14, 49, 40), 'S', 200L, '163580740', '625567540', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:39,915 - DEBUGLOG - DEBUG - [438L, datetime.datetime(2016, 12, 26, 14, 52, 37), 'S', 200L, '472464807', '650499770', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:40,862 - DEBUGLOG - DEBUG - [483L, datetime.datetime(2016, 12, 26, 14, 54, 21), 'S', 200L, '453643868', '643404300', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:40,914 - DEBUGLOG - DEBUG - [419L, datetime.datetime(2016, 12, 26, 14, 49, 43), 'S', 200L, '323837758', '616882770', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:40,917 - DEBUGLOG - DEBUG - [446L, datetime.datetime(2016, 12, 26, 14, 53, 21), 'S', 200L, '126689136', '620331050', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:41,862 - DEBUGLOG - DEBUG - [486L, datetime.datetime(2016, 12, 26, 14, 54, 32), 'S', 200L, '650313713', '673931270', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:41,915 - DEBUGLOG - DEBUG - [424L, datetime.datetime(2016, 12, 26, 14, 50, 27), 'S', 200L, '603023455', '673752060', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:41,917 - DEBUGLOG - DEBUG - [447L, datetime.datetime(2016, 12, 26, 14, 52, 22), 'S', 200L, '160513725', '625415630', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:42,864 - DEBUGLOG - DEBUG - [488L, datetime.datetime(2016, 12, 26, 14, 54, 46), 'S', 200L, '324797750', '617474570', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:42,917 - DEBUGLOG - DEBUG - [433L, datetime.datetime(2016, 12, 26, 14, 51, 39), 'S', 200L, '458803384', '645625960', '9001', '5239', 0L, 0L, None, None]
+2017-01-07 20:15:42,918 - DEBUGLOG - DEBUG - [449L, datetime.datetime(2016, 12, 26, 14, 52, 27), 'S', 200L, '428352201', '634790450', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:43,865 - DEBUGLOG - DEBUG - [489L, datetime.datetime(2016, 12, 26, 14, 54, 49), 'S', 200L, '434727812', '637175480', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:43,917 - DEBUGLOG - DEBUG - [437L, datetime.datetime(2016, 12, 26, 14, 52, 4), 'S', 200L, '225680026', '622795280', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:43,920 - DEBUGLOG - DEBUG - [450L, datetime.datetime(2016, 12, 26, 14, 53, 39), 'S', 200L, '62382738', '608189850', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:44,865 - DEBUGLOG - DEBUG - [490L, datetime.datetime(2016, 12, 26, 14, 54, 51), 'S', 200L, '452482298', '642923570', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:44,918 - DEBUGLOG - DEBUG - [441L, datetime.datetime(2016, 12, 26, 14, 52, 48), 'S', 200L, '323837758', '616882770', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:44,921 - DEBUGLOG - DEBUG - [455L, datetime.datetime(2016, 12, 26, 14, 53, 49), 'S', 200L, '66052320', '603813590', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:45,867 - DEBUGLOG - DEBUG - [494L, datetime.datetime(2016, 12, 26, 14, 55, 2), 'S', 200L, '327917564', '615930840', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:45,920 - DEBUGLOG - DEBUG - [442L, datetime.datetime(2016, 12, 26, 14, 52, 48), 'S', 200L, '201204175', '631642880', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:45,921 - DEBUGLOG - DEBUG - [462L, datetime.datetime(2016, 12, 26, 14, 52, 37), 'S', 200L, '472464807', '650499770', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:46,868 - DEBUGLOG - DEBUG - [496L, datetime.datetime(2016, 12, 26, 14, 55, 29), 'S', 200L, '460619807', '646525030', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:46,921 - DEBUGLOG - DEBUG - [451L, datetime.datetime(2016, 12, 26, 14, 53, 41), 'S', 200L, '163580740', '625567540', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:46,924 - DEBUGLOG - DEBUG - [470L, datetime.datetime(2016, 12, 26, 14, 53, 21), 'S', 200L, '126689136', '620331050', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:47,923 - DEBUGLOG - DEBUG - [453L, datetime.datetime(2016, 12, 26, 14, 53, 44), 'S', 200L, '254796499', '602597930', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:47,924 - DEBUGLOG - DEBUG - [471L, datetime.datetime(2016, 12, 26, 14, 52, 22), 'S', 200L, '160513725', '625415630', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:48,924 - DEBUGLOG - DEBUG - [457L, datetime.datetime(2016, 12, 26, 14, 54), 'S', 200L, '62174311', '614923450', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:48,926 - DEBUGLOG - DEBUG - [473L, datetime.datetime(2016, 12, 26, 14, 52, 27), 'S', 200L, '428352201', '634790450', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:49,926 - DEBUGLOG - DEBUG - [461L, datetime.datetime(2016, 12, 26, 14, 52, 4), 'S', 200L, '225680026', '622795280', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:49,927 - DEBUGLOG - DEBUG - [474L, datetime.datetime(2016, 12, 26, 14, 53, 39), 'S', 200L, '62382738', '608189850', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:50,927 - DEBUGLOG - DEBUG - [465L, datetime.datetime(2016, 12, 26, 14, 52, 48), 'S', 200L, '323837758', '616882770', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:50,927 - DEBUGLOG - DEBUG - [479L, datetime.datetime(2016, 12, 26, 14, 53, 49), 'S', 200L, '66052320', '603813590', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:51,927 - DEBUGLOG - DEBUG - [484L, datetime.datetime(2016, 12, 26, 14, 54, 25), 'S', 200L, '347180196', '610377620', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:51,927 - DEBUGLOG - DEBUG - [466L, datetime.datetime(2016, 12, 26, 14, 52, 48), 'S', 200L, '201204175', '631642880', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:52,930 - DEBUGLOG - DEBUG - [493L, datetime.datetime(2016, 12, 26, 14, 54, 59), 'S', 200L, '462367257', '647123770', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:52,930 - DEBUGLOG - DEBUG - [475L, datetime.datetime(2016, 12, 26, 14, 53, 41), 'S', 200L, '163580740', '625567540', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:53,930 - DEBUGLOG - DEBUG - [499L, datetime.datetime(2016, 12, 26, 14, 55, 40), 'S', 200L, '172980855', '607132800', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:53,931 - DEBUGLOG - DEBUG - [477L, datetime.datetime(2016, 12, 26, 14, 53, 44), 'S', 200L, '254796499', '602597930', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:54,931 - DEBUGLOG - DEBUG - [481L, datetime.datetime(2016, 12, 26, 14, 54), 'S', 200L, '62174311', '614923450', '9001', '5237', 0L, 0L, None, None]
+2017-01-07 20:15:55,933 - DEBUGLOG - DEBUG - [485L, datetime.datetime(2016, 12, 26, 14, 54, 29), 'S', 200L, '164845393', '624382310', '9001', '5236', 0L, 0L, None, None]
+2017-01-07 20:15:56,934 - DEBUGLOG - DEBUG - [487L, datetime.datetime(2016, 12, 26, 14, 54, 42), 'S', 200L, '103729240', '605411180', '5239', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:57,934 - DEBUGLOG - DEBUG - [491L, datetime.datetime(2016, 12, 26, 14, 54, 57), 'S', 200L, '241969411', '605464970', '5237', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:58,936 - DEBUGLOG - DEBUG - [492L, datetime.datetime(2016, 12, 26, 14, 54, 58), 'S', 200L, '225680026', '622795280', '5236', '9001', 0L, 0L, None, None]
+2017-01-07 20:15:59,937 - DEBUGLOG - DEBUG - [500L, datetime.datetime(2016, 12, 26, 14, 55, 45), 'S', 200L, '372813394', '630353960', '9001', '5236', 0L, 0L, None, None]

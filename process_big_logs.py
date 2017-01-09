@@ -307,14 +307,13 @@ def feedback2argl(cdr):
     elif soapaction == "CAI3G#Set":
         action = "S"
 
-    Values="NULL,%s, '%s', %s,%s,%s,%s,%s,%s,0,NULL,NULL" % (getTime(cdr,"request_time"),
+    Values="NULL,%s, '%s', %s,%s,%s,%s,%s,0,NULL,NULL,NULL" % (getTime(cdr,"request_time"),
         action,
         getField(cdr,"responsecode",True),
         getField(cdr,"subscriberId"),
         getField(cdr,"goHesapNo"),
         getField(cdr,"newOffer"),
         getField(cdr,"oldOffer"),
-        getField(cdr,"regCode")
         )
     sqlStr= strHead % (Values,)
     return sqlStr
