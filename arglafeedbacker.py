@@ -35,7 +35,7 @@ class Worker(Thread):
         logger.warn("%s has initialized", self.name)
         self.queue = queue
         self.db = None
-        self.argela = Argela()
+        self.argela = Argela(Config.useStagingArgla)
 
     def connect2DB(self,reconnect=True):
         if reconnect:
@@ -47,82 +47,76 @@ class Worker(Thread):
         while(not stopThread):
             try:
                 j = self.queue.get(timeout=1.0)
-                debugLogger.debug(j)
-                sleep(1)
+##                debugLogger.debug(j)
+##                sleep(1)
                 method = j[fields.soapaction]
-                debugLogger.debug("method is=%s" % method)
-                if method == 'C':
-                    self.createAction()
-                elif method == 'D':
-                    self.deleteAction()
-                elif method == 'S': #this case also includes suspend and unsuspend
-                    self.SetAction()
+##                debugLogger.debug("method is=%s" % method)
+                self.doAction(method,j)
 
                 self.queue.task_done()
             except Queue.Empty:
                 continue
         logger.warn("%s is stopped", self.name)
-    def createAction(self,task):
-        subscriberid = task[fields.subscriberId]
-        serviceid = task[fields.goAccountId]
-        offerid = task[fields.newOffer]
-        paketid = task[fields.id]
-        rc = self.argela.addPackageToSubscriber(subscriberid,serviceid,offerid)
-        if rc[0] == 200 and rc[1]==0 and rc[2]==1:
-            self.updateTask(paketid,3,rc[1],rc[3],rc[4])
-            pass
-        else:
-            #unsuccessfull
-            logger.warning("Argela response is negative for the row:%s" % task)
-##TODO: What will we do next?
-    def deleteAction(self,task):
-        subscriberid = task[fields.subscriberId]
-        serviceid = task[fields.goAccountId]
-        offerid = task[fields.newOffer]
-        paketid = task[fields.id]
-        rc = self.argela.removePackageFromSubscriber(subscriberid,serviceid)
-        if rc[0] == 200 and rc[1]==0 and rc[2]==1:
-            self.updateTask(paketid,3,rc[1],rc[3],rc[4])
-            pass
-        else:
-            #unsuccessfull
-            logger.warning("Argela response is negative for the row:%s" % task)
-##TODO: What will we do next?
 
-    def setAction(self,task):
+    def doAction(self,method,task):
         subscriberid = task[fields.subscriberId]
         serviceid = task[fields.goAccountId]
         newOfferid = task[fields.newOffer]
-        oldOfferId = task[fields.oldOffer]
         paketid = task[fields.id]
+        oldOfferId = task[fields.oldOffer]
 
-        if newOfferid=="9001":
-            #suspend subscriber
-            rc= self.argela.suspendPackageSubscription(subscriberid,serviceid)
-        elif oldOfferId=="9001":
-            #resume subscriber
-            rc= self.argela.resumePackageSubscription(subscriberid,serviceid)
-        else:
-            #set subscriber
-            rc= self.argela.packageChange(subscriberid,serviceid,newOfferid)
+        if method=='C': #CREATE ACTION
+            rc = self.argela.addPackageToSubscriber(subscriberid,serviceid,newOfferid)
+            mstr = "CREATE"
+        elif  method=='D': #DELETE ACTION
+            rc = self.argela.removePackageFromSubscriber(subscriberid,serviceid)
+            mstr = "DELETE"
+        elif method=='S': #SET ACTION
+            if newOfferid=="9001":
+                #suspend subscriber dont care old packet
+                rc= self.argela.suspendPackageSubscription(subscriberid,serviceid)
+                mstr = "SUSPEND"
+            elif oldOfferId=="9001":
+                #resume subscriber dont care new  packet
+                rc= self.argela.resumePackageSubscription(subscriberid,serviceid)
+                mstr = "RESUME"
+            elif newOfferid is None and oldOfferId is not None:
+                #delete the old package
+                mstr = "SET_DELETE_OLD"
+                rc = self.argela.removePackageFromSubscriber(subscriberid,serviceid)
+            elif newOfferid is None and oldOfferId is None:
+                #ambiguous action! No offers
+                #skip it with jobstatus code=7
+                self.updateTask(paketid,7,None,None,None)
+            elif newOfferid is not None:
+                #set subscriber
+                mstr = "PKT CHANGE"
+                rc= self.argela.packageChange(subscriberid,serviceid,newOfferid)
+
         if rc[0] == 200 and rc[1]==0 and rc[2]==1:
             self.updateTask(paketid,3,rc[1],rc[3],rc[4])
+            pass
         else:
+            self.updateTask(paketid,6,rc[1],rc[3],rc[4])
             #unsuccessfull
-            logger.warning("Argela response is negative for the row:%s" % task)
-##TODO: What will we do next?
+            debugLogger.warning("Argela NEGATIVE RESP for: M: %s PID:%d, SUB:%s, GO:%s, NO:%s, OO:%s, RETURN_CODE:%d, RETURN_TEXT:%s" % (mstr,
+            paketid,subscriberid,serviceid,newOfferid,oldOfferId,rc[1], rc[6]))
 
 
     def updateTask(self,paketid, jobStatus, arglaResponseCode, arglaResponseTime, arglaResponseDuration):
-        queryStr="UPDATE Biglogs.argelaya SET jobstatus=%d, argelaResponseCode=%d, argelaResponseTime='%s', argelaResponseDuration=%f WHERE id = %d"  %  (
-        jobStatus, arglaResponseCode, arglaResponseTime.strftime("%Y-%m-%d %H:%M:%S"), arglaResponseDuration , paketid)
-        debugLogger.debug("Query:" + queryStr)
+        if arglaResponseCode is None and arglaResponseTime is None and arglaResponseDuration is None:
+             queryStr="UPDATE %s.%s SET jobstatus=%d WHERE id = %d"  %  (Config.dbName,Config.dbTableName, jobStatus,  paketid)
+        else:
+            queryStr="UPDATE  %s.%s SET jobstatus=%d, argelaResponseCode=%d, argelaRequestTime='%s', argelaResponseDuration=%f WHERE id = %d"  %  (
+        Config.dbName,Config.dbTableName,jobStatus, arglaResponseCode, arglaResponseTime.strftime("%Y-%m-%d %H:%M:%S"), arglaResponseDuration , paketid)
+##        debugLogger.debug("Query:" + queryStr)
         try:
             cursor = self.db.cursor()
             cursor.execute(queryStr)
         except:
             logger.error("Mysql update exception:%s" % queryStr)
         self.db.commit()
+
 
 class fields():
     id=0
@@ -146,7 +140,7 @@ class ArglaFeedBacker():
         self.noThreads = Config.arglThreadCount
         self.workerQueues = []
         self.workerThreads = []
-        self.batchBucketSize = 250
+        self.batchBucketSize = Config.batchBucketSize
 
 ##Create Queues and Threads
         for i in range(self.noThreads):
@@ -178,7 +172,7 @@ class ArglaFeedBacker():
             th.start()
         while (not self.stopApplication):
 ##      	? Get 1000 rows that has jobstatus=0 order by paketid
-            queryStr = "Select * from Biglogs.argelaya where jobstatus=0 order by id limit %d" % self.batchBucketSize
+            queryStr = "Select * from %s.%s where jobstatus=0 order by id limit %d" % (Config.dbName,Config.dbTableName, self.batchBucketSize)
             debugLogger.debug("Query:" + queryStr)
             cursor = self.db.cursor()
             allrows = []
@@ -241,13 +235,21 @@ class ArglaFeedBacker():
             batchStartTime = datetime.now()
 ##    		? Dispatch rows to queues on modulus like:
             logger.info("Started sending all the Batch")
-
+            #START PROCESSING RECORDS
             for row in allrows:
 ##    			? Queue[subscriber mod numofthreads].put(row)
                 #SubscriberId should be numeric!!!
-                qid = int(row[fields.subscriberId]) % self.noThreads
-                if row[fields.goAccountId] is not None:
-                    self.workerQueues[qid].put(row)
+                try:
+                    qid = int(row[fields.subscriberId]) % self.noThreads
+                    if row[fields.goAccountId] is not None:
+                        self.workerQueues[qid].put(row)
+                except ValueError as e:
+                    debugLogger.warn("Found invalid subscribername as:%s", row[fields.subscriberId])
+                #mark row with errorcode=8
+                    self.updateRows([row[fields.id]],8)
+
+                    continue
+
 ##    		? Sleep(60)
             logger.info("Finished sending all the Batch")
 ##            sleep(60)
@@ -265,8 +267,8 @@ class ArglaFeedBacker():
 ##    		? Total_processed = Batch_row_count - total_bekleyen
             totalProcessed = batch_row_count - self.getTotalWaiting()
 ##    		? Report batch_status
-            logger.info("%d jobs finished at %.2f seconds. Average job duration: %.2f" % (totalProcessed, batchDuration.total_seconds(),
-             batchDuration.total_seconds() / batch_row_count  ) )
+            debugLogger.info("%d transaction finished at %.2f seconds. Average Speed: %.2f transaction per hour" % (totalProcessed, batchDuration.total_seconds(),
+             batch_row_count/ batchDuration.total_seconds() * 3600.0  ) )
 ##    		? Report overall Status
             break
 
@@ -279,7 +281,7 @@ class ArglaFeedBacker():
         logger.warning("Application Main loop is stopped")
 
     def updateRows(self,paketids, status):
-        queryStr="UPDATE Biglogs.argelaya SET jobstatus=%d WHERE id in (%s)" % (status,",".join(paketids))
+        queryStr="UPDATE %s.%s SET jobstatus=%d WHERE id in (%s)" % (Config.dbName,Config.dbTableName,status,",".join(paketids))
         debugLogger.debug("Query:" + queryStr)
         cursor = self.db.cursor()
         cursor.execute(queryStr)

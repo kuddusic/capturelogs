@@ -14,8 +14,11 @@ from datetime import datetime,timedelta
 
 class Argela():
 
-    def __init__(self,verbose=True):
-        self.endpoint="172.24.78.31:8080"
+    def __init__(self,staging=True,verbose=False):
+        if staging:
+            self.endpoint="172.20.31.128:8080" # staging QSDP
+        else:
+            self.endpoint="172.24.78.31:8080"
         self.provUrl = "http://"+ self.endpoint+"/ProvisioningWSWtvMtv/ProvisioningServerWtvMtv"
         self.verbose = verbose
         self.baseHeaders= {'Content-Type': 'text/xml;charset=UTF-8','Accept-Encoding': 'gzip,deflate','User-Agent': 'Apache-HttpClient/4.1.1 (java 1.5)',
@@ -28,12 +31,7 @@ class Argela():
             serviceUrl = self.provUrl
         self.baseHeaders["SOAPAction"]=soapAction
         bodyMessage = """<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wtv="http://wtvmtv.server.webservice.core.provisioningmanager.iptv.argela.com.tr/">
-   <soapenv:Header/>
-   <soapenv:Body>
-   %s
-   </soapenv:Body>
-</soapenv:Envelope>
-"""   %  (serviceMsg,)
+   <soapenv:Header/>   <soapenv:Body>   %s   </soapenv:Body></soapenv:Envelope>"""   %  (serviceMsg,)
 
         if self.xmlDebug:
             print "--- REQUEST BEGIN ---\r\n"
@@ -47,32 +45,52 @@ class Argela():
                 t = " " + t
             bodyMessage_ws_removed += t
         request_time = datetime.now()
-        response = requests.post(serviceUrl,data=bodyMessage_ws_removed,headers=self.baseHeaders)
+
+        try:
+            response = None
+            response = requests.post(serviceUrl,data=bodyMessage_ws_removed,headers=self.baseHeaders)
+        except requests.HTTPError as exc:
+            httpStatusCode = response.status_code
+        except Exception as exc:
+            returnCode = -1
+            returnStatus = -1
+            reasonText = str(exc)
+            response = None
+            httpStatusCode = -1
+
         response_duration = datetime.now() - request_time
 
-        if self.responseDebug:
-            print "--- RESPONSE BEGIN ---\r\n"
-            print response.content
-            print "--- RESPONSE END ---\r\n"
+        if response is not None:
+            if self.responseDebug:
+                print "--- RESPONSE BEGIN ---\r\n"
+                print response.content
+                print "--- RESPONSE END ---\r\n"
 
-        e = xml.etree.ElementTree.fromstring(response.content)
-        returnCodeElem= e.find('.//returnCode')
-        httpStatusCode = response.status_code
-        reasonText = response.reason
+            e = xml.etree.ElementTree.fromstring(response.content)
+            returnCodeElem= e.find('.//returnCode')
+            httpStatusCode = response.status_code
 
-        if returnCodeElem is not None:
-            returnCode = int(returnCodeElem.text)
-            returnStatus = int(e.find('.//returnStatus').text)
-            reasonText = e.find('.//returnText').text
-##            print httpStatusCode, returnStatus, reasonText
 
-        if self.verbose:
-            if httpStatusCode!= 200:
-                print soapAction,"'s RESPONSE FAILED: HTTP REASON CODE:",response.status_code,response.reason,"Argela returnCode:",returnCode,"retunStatus:",returnStatus
+            if returnCodeElem is not None:
+                returnCode = int(returnCodeElem.text)
+                returnStatus = int(e.find('.//returnStatus').text)
+                reasonText = e.find('.//returnText').text
+    ##            print httpStatusCode, returnStatus, reasonText
             else:
-                print soapAction,"'s RESPONSE OK"
+                returnCode = httpStatusCode
+                returnStatus = -1
+                reasonText = response.reason
 
-        return  (httpStatusCode, returnCode, returnStatus, request_time, response_duration.total_seconds(), response.content,reasonText,soapAction)
+            if self.verbose:
+                if httpStatusCode!= 200:
+                    print soapAction,"'s RESPONSE FAILED: HTTP REASON CODE:",response.status_code,response.reason,"Argela returnCode:",returnCode,"retunStatus:",returnStatus
+                else:
+                    print soapAction,"'s RESPONSE OK"
+
+            return  (httpStatusCode, returnCode, returnStatus, request_time, response_duration.total_seconds(), response.content,reasonText,soapAction)
+        else: # response is None
+            return  (httpStatusCode, returnCode, returnStatus, request_time, response_duration.total_seconds(), None,reasonText,soapAction)
+
 
     def getSubscriber(self,subscriberId,fullDetail=False):
         getSubscriberStr="""
@@ -142,10 +160,10 @@ class Argela():
 
 def main():
     a = Argela()
-##    print a.getSubscriber("testkudu2",True)
+    print a.getSubscriber("testkudu2",True)
 ##    print a.addPackageToSubscriber("testkudu","2170109201",5239)
 ##    print a.addPackageToSubscriber("testkudu1","2170109202",5239)
-    print a.removePackageFromSubscriber("testkudu2","2170109203")
+##    print a.removePackageFromSubscriber("testkudu2","2170109203")
 
 
 

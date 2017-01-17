@@ -1,3 +1,14 @@
+jobStatus
+    0: idle
+    1: working on it
+    3: success
+
+    5: Go hesapno not found
+    6: MW Error
+    7: set action without offers
+    8: invalid subscriberid
+
+
 querySubscriber:
 
 (200,
@@ -17,8 +28,10 @@ addPackageToSubscriberResponse
 </ns2:addPackageToSubscriberResponse></S:Body></S:Envelope>', None, '', '')
 
 yeniden eklemeye çalisildigi zaman alinan hata:
-(200, 750110, 0, datetime.datetime(2017, 1, 9, 20, 41, 29, 277000), 0.387, '<?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:addPackageToSubscriberResponse xmlns:ns2="http://wtvmtv.server.webservice.core.provisioningmanager.iptv.argela.com.tr/"><return><returnCode>750110</returnCode><returnStatus>0</returnStatus><returnText>SubscriberID is already active., Customer has subscription for given service</returnText><transactionId>1701092041283700161</transactionId></return></ns2:addPackageToSubscriberResponse></S:Body></S:Envelope>', 'SubscriberID is already active., Customer has subscription for given service', 'AddPackage2Subscriber')
+(200, 750110, 0, datetime.datetime(2017, 1, 9, 20, 41, 29, 277000), 0.387, '<?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:addPackageToSubscriberResponse xmlns:ns2="http://wtvmtv.server.webservice.core.provisioningmanager.iptv.argela.com.tr/">
+<return><returnCode>750110</returnCode><returnStatus>0</returnStatus><returnText>SubscriberID is already active., Customer has subscription for given service</returnText><transactionId>1701092041283700161</transactionId></return></ns2:addPackageToSubscriberResponse></S:Body></S:Envelope>', 'SubscriberID is already active., Customer has subscription for given service', 'AddPackage2Subscriber')
 
 yeniden silinmeye çalisildigi zaman
 RemovePackageFromSubscriber 's RESPONSE OK
-(200, 750160, 0, datetime.datetime(2017, 1, 9, 20, 43, 18, 335000), 0.13, '<?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:removePackageFromSubscriberResponse xmlns:ns2="http://wtvmtv.server.webservice.core.provisioningmanager.iptv.argela.com.tr/"><return><returnCode>750160</returnCode><returnStatus>0</returnStatus><returnText>SubscriberID is inactive., Customer is Inactive. subscriberStatus=2</returnText><transactionId>1701092043174260187</transactionId></return></ns2:removePackageFromSubscriberResponse></S:Body></S:Envelope>', 'SubscriberID is inactive., Customer is Inactive. subscriberStatus=2', 'RemovePackageFromSubscriber')
+(200, 750160, 0, datetime.datetime(2017, 1, 9, 20, 43, 18, 335000), 0.13, '<?xml version="1.0" ?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:removePackageFromSubscriberResponse xmlns:ns2="http://wtvmtv.server.webservice.core.provisioningmanager.iptv.argela.com.tr/">
+<return><returnCode>750160</returnCode><returnStatus>0</returnStatus><returnText>SubscriberID is inactive., Customer is Inactive. subscriberStatus=2</returnText><transactionId>1701092043174260187</transactionId></return></ns2:removePackageFromSubscriberResponse></S:Body></S:Envelope>', 'SubscriberID is inactive., Customer is Inactive. subscriberStatus=2', 'RemovePackageFromSubscriber')
